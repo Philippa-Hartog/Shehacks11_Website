@@ -86,3 +86,7 @@ html, body {
 .team-viewport { overflow: hidden; }
 .team-track { display:flex; gap: 40px; transition: transform 600ms ease-in-out; }
 .team-track.no-anim { transition: none; } /* used when we instantly reset after a step */
+
+html, body {
+  cursor: url('/images/magnifying-glass-cursor.png') 20 20, auto;
+}
