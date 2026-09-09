@@ -10,6 +10,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-koulen: var(--font-koulen);
+  --font-londrina: var(--font-londrina);
+  --font-sometype: var(--font-sometype);
+  --font-newsreader: var(--font-newsreader);
+  --font-lobster: var(--font-lobster);
+  --font-inconsolata: var(--font-inconsolata);
 }
 
 @media (prefers-color-scheme: dark) {
