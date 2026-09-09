@@ -15,5 +15,10 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4"
+  },
+  "allowScripts": {
+    "sharp@0.34.3": true,
+    "tailwindcss@4.1.13": true,
+    "@tailwindcss/oxide@4.1.13": true
   }
 }
