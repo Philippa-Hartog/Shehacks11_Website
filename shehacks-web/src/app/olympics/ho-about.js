@@ -10,11 +10,25 @@ export default function HOAbout() {
         style={{ width: CANVAS_WIDTH, height: 1302, position: 'absolute', top: 4787, left: 0 }}
       />
 
+      
+      {/* Meet the team Banner*/}
       <img
         src="/images/hacker-olympics/elements/meet-the-team-banner.png"
         alt="meet the team banner"
-        style={{ width: 1451, height: 238, position: 'absolute', top: 4580, left: -20 }}
+        style={{ width: 1451, height: 238, position: 'absolute', top: 4580, left: 0 }}
       />
+      <h1 
+        className="font-koulen"
+        style={{
+          position: 'absolute',
+          top: 4630,
+          left: 470,
+          fontSize: 96,
+          color: '#BD0000',
+        }}
+      >
+        MEET THE TEAM
+      </h1>
 
       {/* Footer */}
       <p

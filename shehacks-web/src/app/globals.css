@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -46,13 +47,6 @@
   font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6, a, strong {
-  font-family: 'Xilla', sans-serif;
-}
-
-body, p, li, span {
-  font-family: 'Inconsolata', monospace;
-}
 
 body {
   background: var(--background);

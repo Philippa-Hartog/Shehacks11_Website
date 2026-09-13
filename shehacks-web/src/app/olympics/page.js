@@ -1,10 +1,10 @@
 "use client"
 
 import { useEffect, useRef, useState } from 'react';
-import HowHOWorks from '../howHOworks.js';
-import HOWinners from '../ho-winners';
-import HOFaq from '../ho-faq';
-import HOAbout from '../ho-about';
+import HowHOWorks from './howHOworks.js';
+import HOWinners from './ho-winners';
+import HOFaq from './ho-faq';
+import HOAbout from './ho-about';
 
 const CANVAS_WIDTH = 1440;
 const CANVAS_HEIGHT = 6002;

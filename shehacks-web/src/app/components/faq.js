@@ -3,14 +3,10 @@ import { useState } from "react";
 import Image from "next/image";
 
 const DEFAULT_ITEMS = [
-  { q: "When are Hacker Applications?", a: "Hacker applications will be released in November, Keep an eye out on our Social media to be kept up to date with information on SheHacks+." },
-  { q: "What will be accommodated?", a: "The arrangements will include meals, comfortable sleeping accommodations, and travel reimbursements case by case for those traveling a considerable distance to the venue." },
-  { q: "Where will SheHacks+ take place?", a: "TBD — venue and address to be provided." },
-  { q: "Does SheHacks+ cost anything?", a: "SheHacks is completely free, due to our generous sponsors! You will have access to a multitude of workshops and tools to help with your hack!" },
-  { q: "Do I need to come with a team?", a: "You can come solo or with a team. If you already have a team of ( 3-4 people), you can register with them! If you don’t have a team there will be time before hacking to form teams or we can match you up with one before the event." },
-  { q: "Can I still come if I’m not a woman+?", a: "SheHacks+ is designed to be an inclusive space to support female-identifying and non-binary individuals who are interested in technology. As we're focused on creating a talent pipeline from minorities in tech, this event is specifically created as a place for women+ to explore the tech industry in a supportive way. Otherwise, we welcome people of all genders to participate as a volunteer or mentor. Keep an eye out on our Facebook and website for more information." },
-  { q: "I’m a recently graduated student. Can I still apply?", a: "Yes! We welcome all students as well as new grads to attend SheHacks+. There will be many opportunities to meet with sponsors and network. This would be the perfect time to search for a job/internship!" },
-  { q: "I don’t attend a Canadian university. Can I still apply?", a: "Yes! SheHacks+ welcomes students from around the world to participate. The only downside is we may not be able to reimburse your travel costs to our venue." },
+  { q: "What challenges will I compete in?", a: "TBD — venue and address to be provided." },
+  { q: "If I'm a beginner, can I sompete in the regular stream?", a: "" },
+  { q: "Do I need to come with a team?", a: "" },
+  { q: "Can I compete in both Hacker Olympics and regular stream?", a: "" },
 ];
 
 export default function Faq({ items = DEFAULT_ITEMS }) {
