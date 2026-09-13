@@ -3,12 +3,12 @@ import { useState } from "react";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "ABOUT", href: "#about" },
-  { label: "SPONSOR", href: "#sponsor" },
-  { label: "OLYMPICS", href: "#olympics" },
-  { label: "COMMUNITY", href: "#community" },
+  { label: "ABOUT", href: "/#about" },
+  { label: "PAST WINNERS", href: "/#winners" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "CONNECT WITH US", href: "/#connect" },
   { label: "GALLERY", href: "/gallery" },
-  { label: "FAQ", href: "#faq" },
+  { label: "SHEHACKS", href: "/" },
 ];
 
 // Logos scale together
@@ -41,16 +41,17 @@ export default function Navbar() {
               className="w-full h-auto"
             />
           </a>
-        <a href="./">
-          <Image
-            src="/images/SHnavlogo.png"
-            alt="SheHacks"
-            width={98}
-            height={74}
-            className={`${LOGO_SIZES} h-auto select-none pointer-events-none mt-[clamp(6px,1.2vw,20px)]`}
-            priority
-          />
-        </a>
+
+          <a href="./">
+            <Image
+              src="/images/SHnavlogo.png"
+              alt="SheHacks"
+              width={98}
+              height={74}
+              className={`${LOGO_SIZES} h-auto select-none pointer-events-none mt-[clamp(6px,1.2vw,20px)]`}
+              priority
+            />
+          </a>
         </div>
 
         {/* DESKTOP NAV (visible ≥ 400px) */}
@@ -97,7 +98,7 @@ export default function Navbar() {
         </div>
 
         {/* HAMBURGER (visible < 400px) */}
-        <div className="block min-[400px]:hidden mt-[3vw]">
+        <div className="block min-[400px]:hidden">
           <button
             aria-label="Open menu"
             aria-expanded={open}

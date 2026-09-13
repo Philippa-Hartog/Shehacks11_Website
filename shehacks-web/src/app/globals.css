@@ -90,3 +90,19 @@ html, body {
 html, body {
   cursor: url('/images/magnifying-glass-cursor.png') 20 20, auto;
 }
+
+@keyframes gallerySlideIn {
+  from { transform: translateX(30px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+.gallery-slide-in {
+  animation: gallerySlideIn 400ms ease-out;
+}
+
+.gallery-flip-stack {
+  perspective: 2200px;
+}
+.gallery-flip-page {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
