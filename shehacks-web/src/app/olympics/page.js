@@ -7,12 +7,12 @@ import HOFaq from './ho-faq';
 import HOAbout from './ho-about';
 
 const CANVAS_WIDTH = 1440;
-const CANVAS_HEIGHT = 6002;
+const CANVAS_A_HEIGHT = 2576; // HowHOWorks
+const CANVAS_B_HEIGHT = 2490; // HOFaq + HOAbout
 
-export default function HackerOlympicsPage() {
+function ScaledCanvas({ height, children }) {
   const wrapperRef = useRef(null);
   const [scale, setScale] = useState(1);
-  const [overlayOpacity, setOpacity] = useState(1);
 
   useEffect(() => {
     function updateScale() {
@@ -22,6 +22,26 @@ export default function HackerOlympicsPage() {
     window.addEventListener('resize', updateScale);
     return () => window.removeEventListener('resize', updateScale);
   }, []);
+
+  return (
+    <div ref={wrapperRef} style={{ width: '100%', overflow: 'hidden' }}>
+      <div
+        style={{
+          width: CANVAS_WIDTH,
+          height: height * scale,
+          transform: `scale(${scale})`,
+          transformOrigin: 'top left',
+          position: 'relative',
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+export default function HackerOlympicsPage() {
+  const [overlayOpacity, setOpacity] = useState(1);
 
   useEffect(() => {
     // This effect is intended to change the opacity of the overlay as the user lands on the page
@@ -34,42 +54,31 @@ export default function HackerOlympicsPage() {
   }, []);
 
   return (
-    <div
-      ref={wrapperRef}
-      style={{
-        width: '100%',
-        overflow: 'hidden',
-      }}
-    >
+    <div style={{ position: 'relative' }}>
+      {/* Black landing overlay — covers the real viewport, independent of any section's own scaling */}
       <div
         style={{
-          width: CANVAS_WIDTH,
-          height: CANVAS_HEIGHT * scale,
-          transform: `scale(${scale})`,
-          transformOrigin: 'top left',
-          position: 'relative',
+          position: 'fixed',
+          inset: 0,
+          backgroundColor: 'black',
+          opacity: overlayOpacity,
+          zIndex: 10,
+          transition: 'opacity 1s',
+          pointerEvents: overlayOpacity === 0 ? 'none' : 'auto',
         }}
-      >
-        {/* Black overlay and spotlights — spans the whole canvas, stays here rather than in any one section */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: CANVAS_WIDTH,
-            height: CANVAS_HEIGHT,
-            backgroundColor: 'black',
-            opacity: overlayOpacity,
-            zIndex: 10,
-            transition: 'opacity 1s',
-          }}
-        />
+      />
 
+      <ScaledCanvas height={CANVAS_A_HEIGHT}>
         <HowHOWorks />
-        <HOWinners />
+      </ScaledCanvas>
+
+      {/* Not scaled — needs to stay outside any transform for its scroll-pin animation to work */}
+      <HOWinners />
+
+      <ScaledCanvas height={CANVAS_B_HEIGHT}>
         <HOFaq />
         <HOAbout />
-      </div>
+      </ScaledCanvas>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function HOAbout() {
       <img
         src="/images/hacker-olympics/backgrounds/ho-background6.png"
         alt="hacker olympics background with scattered pages and blueprints"
-        style={{ width: CANVAS_WIDTH, height: 1302, position: 'absolute', top: 4787, left: 0 }}
+        style={{ width: CANVAS_WIDTH, height: 1302, position: 'absolute', top: 1275, left: 0 }}
       />
 
       
@@ -15,13 +15,13 @@ export default function HOAbout() {
       <img
         src="/images/hacker-olympics/elements/meet-the-team-banner.png"
         alt="meet the team banner"
-        style={{ width: 1451, height: 238, position: 'absolute', top: 4580, left: 0 }}
+        style={{ width: 1451, height: 238, position: 'absolute', top: 1068, left: 0 }}
       />
       <h1 
         className="font-koulen"
         style={{
           position: 'absolute',
-          top: 4630,
+          top: 1118,
           left: 470,
           fontSize: 96,
           color: '#BD0000',
@@ -35,7 +35,7 @@ export default function HOAbout() {
         className="font-koulen"
         style={{
           position: 'absolute',
-          top: 5760,
+          top: 2248,
           left: 525,
           fontSize: 68,
           transform: 'rotate(0deg)',
@@ -49,7 +49,7 @@ export default function HOAbout() {
         className="font-sometype"
         style={{
           position: 'absolute',
-          top: 5850,
+          top: 2338,
           left: 632,
           fontSize: 32,
           color: 'black',
@@ -61,7 +61,7 @@ export default function HOAbout() {
       <div
         style={{
           position: 'absolute',
-          top: 5910,
+          top: 2398,
           left: 647,
           display: 'flex',
           flexDirection: 'row',
