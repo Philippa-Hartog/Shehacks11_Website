@@ -17,70 +17,130 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
   const [open, setOpen] = useState(null);
 
   return (
-    <section id="faq" className="relative scroll-mt-28 py-5 sm:py-15 w-full">
-      <h2 className="text-center font-semibold text-white"
-          style={{ fontSize: "clamp(40px, 5vw, 50px)" }}>
-        FAQ
-      </h2>
-      <div className="pointer-events-none absolute right-[150] top-[-50] hidden sm:block opacity-100">
+    <section id="faq" className="relative scroll-mt-28 w-full flex justify-center px-4 overflow-visible -mt-6 sm:mt-0">
+      
+      {/* FAQ PAPER CONTAINER */}
+      <div className="relative w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl aspect-[1244/1270]">
         <Image
-          src="/images/faqstars.png"
-          alt=""
-          width={48*2}
-          height={48*2}
-          className="select-none"
+          src="/images/FAQ-paper.png"
+          alt="FAQ paper background"
+          fill
+          className="object-contain object-top drop-shadow-xl"
           priority
         />
-      </div>
-    
-      <div className="mx-auto mt-6 sm:mt-8 w-full max-w-3xl px-4">
-        <ul className="divide-y divide-white/15">
-          {items.map((item, i) => {
-            const isOpen = open === i;
-            return (
-              <li key={i} className="py-3 sm:py-4">
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="group w-full flex items-center justify-between gap-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded"
-                >
-                  <span
-                    className="text-white font-semibold tracking-tight"
-                    style={{ fontSize: "clamp(14px, 1.6vw, 18px)" }}
+
+        {/* INVISIBLE FOOTPRINTS */}
+          <div
+            className="absolute top-0 right-[10%] z-0 pointer-events-none "
+            style={{
+              width: "calc(var(--footprint-unit) * 9)",
+              transform: "translateY(-31%)",
+              mixBlendMode: "multiply"
+            }}
+          >
+          <Image
+            src="/images/footsteps 2.png"
+            alt="Footprints background graphic"
+            width={268}
+            height={658}
+            className="w-full h-auto"
+          />
+        </div>
+        
+        <div 
+          className="absolute top-[40%] left-[10%] pointer-events-none z-20"
+          style={{width: "calc(var(--footprint-unit) * 9)"}}
+        >
+          <Image
+            src="/images/footsteps 3.png"
+            alt="Footprints background graphic"
+            width={268}
+            height={658}
+            className="w-full h-auto"
+          />
+        </div>
+
+        {/* RED FAQ HEADER */}
+        <div className="relative -top-[5%] left-[7%] w-[clamp(100px,35%,555px)] z-20">
+          <Image
+            src="/images/FAQ.png"
+            alt="FAQ title"
+            width={555}
+            height={202}
+            className="w-full h-auto"
+            priority
+          />
+          <span 
+            style={{ fontFamily: "var(--font-koulen)" }}
+            className="absolute inset-0 z-30 flex items-center justify-center text-white text-[clamp(25px,6vw,85px)] tracking-wider"
+          >
+            FAQ
+          </span>     
+        </div>
+
+        {/* 11 CARDS */}
+        <div 
+          className="hidden sm:block absolute -bottom-30 right-0 w-[clamp(140px,20vw,378px)] aspect-square pointer-events-none z-20 overflow-visible"         
+          style={{ right: "calc(50% - 50vw)" }}
+        >
+          <Image
+            src="/images/Cards-FAQ.png"
+            alt="Playing cards"
+            width={378}
+            height={623}
+            className="w-full h-auto"
+          />
+        </div>
+
+        {/* QUESTIONS */}
+        <div 
+          className="absolute inset-0 pt-[10%] sm:pt-[15%] px-[10%] pb-[8%] overflow-y-auto"
+          style={{ fontFamily: "var(--font-sometype-mono)" }}
+        >
+          <ul className="divide-y divide-neutral-400/50">
+            {items.map((item, i) => {
+              const isOpen = open === i;
+              return (
+                <li key={i} className="py-3 sm:py-3.5">
+                  <button
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    className="group w-full flex items-center justify-between gap-4 text-left focus:outline-none"
                   >
-                    {item.q}
-                  </span>
+                    <span className="text-neutral-900 font-medium text-[clamp(12px,1.6vw,16px)]">
+                      {item.q}
+                    </span>
 
-                  <span className="relative inline-flex h-5 w-5 items-center justify-center" aria-hidden="true">
-                    <span className="absolute h-[2px] w-3.5 bg-white transition-opacity duration-200" />
-                    <span
-                      className={`absolute h-3.5 w-[2px] bg-white transition-transform duration-200 ${
-                        isOpen ? "scale-y-0" : "scale-y-100"
-                      }`}
-                    />
-                  </span>
-                </button>
+                    {/* PLUS / MINUS ICONS */}
+                    <span className="relative inline-flex h-4 w-4 items-center justify-center shrink-0" aria-hidden="true">
+                      <span className="absolute h-[2px] w-3.5 bg-neutral-800 transition-opacity duration-200" />
+                      <span
+                        className={`absolute h-3.5 w-[2px] bg-neutral-800 transition-transform duration-200 ${
+                          isOpen ? "scale-y-0" : "scale-y-100"
+                        }`}
+                      />
+                    </span>
+                  </button>
 
-                {/* answer */}
-                <div
-                  className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p
-                      className="pt-3 text-white/95 font-normal leading-relaxed"
-                      style={{ fontSize: "clamp(13px, 1.4vw, 16px)" }}
-                    >
-                      {item.a}
-                    </p>
+                  {/* ANSWERS */}
+                  <div
+                    className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
+                      isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="pt-2 text-neutral-700 text-[clamp(11px,1.4vw,14px)] leading-relaxed">
+                        {item.a}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>   
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+      </div>
     </section>
   );
 }
