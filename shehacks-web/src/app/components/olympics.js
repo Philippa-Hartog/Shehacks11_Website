@@ -2,118 +2,77 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/** knobs */
-const CAM_DESIGN = { width: 520, height: 380 }; // aspect ~1.368
-const CAM_W_CLAMP = "clamp(260px, 26vw, 520px)";   // ≥sm width range
-const PB_CLAMP    = "clamp(220px, 28vw, 420px)";   // bottom padding to avoid cropping
-const BOTTOM_CLAMP = "calc(-1 * clamp(70px, 8vw, 140px))"; // dip below content
-
 export default function Olympics() {
   return (
-    <section
-      id="olympics"
-      className="relative scroll-mt-28 pt-12 md:pt-10"
-      style={{ paddingBottom: PB_CLAMP }}
-    >
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <div className="relative inline-block">
-          <Image
-            src="/images/topstars.png"
-            alt=""
-            aria-hidden
-            width={60}
-            height={60}
-            className="pointer-events-none select-none absolute -left-[70px] top-[-8px] w-14 sm:w-16 h-auto"
-            priority
-          />
-          <div className="inline-block text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold text-white">Hacker Olympics</h1>
-            <Image
-              src="/images/HO_title_line.png"
-              alt=""
-              aria-hidden="true"
-              width={400}
-              height={20}
-              className="pointer-events-none select-none w-[90%] h-auto mx-auto"
-              priority
-            />        
-          </div>
-          </div>
-        <p
-          className="mt-[35px] sm:mt-10 md:mt-12 text-base sm:text-lg md:text-xl lg:text-xxl text-white/95"
-          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.55)" }}
-        >
-          Hacker Olympics is an alternative competition stream designed for beginner hackers with little to no coding experience. Though we encourage everyone (even beginners) to try and develop a hack, we understand that it’s daunting to jump into a hackathon right away! Hacker Olympics is an alternative competition that beginner hackers can apply for. It is meant to develop coding skills and tech knowledge through the duration of SheHacks+.
-        </p>
-
-        <div className="mt-6 flex justify-center">
-          <div className="relative inline-block">
-            <div className="w-full flex justify-center mt-8" aria-label="Learn More">
-        <Link href="/olympics" aria-label="Learn more about Hacker Olympics" className="group inline-block">                  <Image
-                  src="/images/learnmore-ho.png"
-                  alt="Learn More"
-                  width={303}
-                  height={121}
-                  priority
-                  sizes="(min-width:1024px) 300px, (min-width:768px) 260px, (min-width:640px) 240px, 200px"
-                  className="
-                      h-auto
-                      w-[200px] sm:w-[240px] md:w-[260px] lg:w-[300px]
-                      transition-transform duration-200
-                      group-hover:scale-[1.01] group-active:scale-[0.985]
-                      hover:brightness-110
-                      drop-shadow-[0_6px_14px_rgba(255,255,255,0.25)]
-                  "
-                  />
-              </Link>
-          </div>
-            <Image
-              src="/images/bottomstars.png"
-              alt=""
-              aria-hidden
-              width={120}
-              height={120}
-              className="
-                pointer-events-none select-none absolute
-                -right-8 top-16 sm:top-20
-                w-[clamp(20px,3vw,120px)]  /* scales with screen size */
-                h-auto
-              "
-              priority
-            />
-          </div>
-        </div>
-      </div>
-      {/* MOBILE: camera centered, not absolute (no cropping) */}
-      <div className="sm:hidden mt-10 flex justify-center">
+    <section id="olympics" className="relative scroll-mt-28 pb-12">
+      
+      {/* PEN */}
+      <div className="absolute top-[30%] right-0 mr-[calc(50%-50vw)] z-30 pointer-events-none w-[clamp(115px,30vw,631px)]">
         <Image
-          src="/images/camera.png"
-          alt="Digital camera"
-          width={CAM_DESIGN.width}
-          height={CAM_DESIGN.height}
-          priority
-          className="pointer-events-none select-none w-[min(88vw,420px)] h-auto"
+          src="/images/Pen.png"
+          alt="pen"
+          width={631}
+          height={402}
+          className="w-full h-auto object-contain"
         />
       </div>
 
-      {/* DESKTOP/TABLET: camera absolute; auto-center at <= 880px */}
-      <Image
-        src="/images/camera.png"
-        alt="Digital camera"
-        width={CAM_DESIGN.width}
-        height={CAM_DESIGN.height}
-        priority
-        className="
-          hidden sm:block pointer-events-none select-none absolute z-0 h-auto
-          max-[880px]:left-1/2 max-[880px]:-translate-x-1/2 max-[880px]:right-auto
-        "
-        style={{
-          // default desktop anchoring to the right (ignored when <=880px by the classes above)
-          right: `max(16px, calc((100vw - 1440px) / 2 + 24px))`,
-          bottom: BOTTOM_CLAMP,
-          width: CAM_W_CLAMP, // responsive width; height follows
-        }}
-      />
+      <div className="relative w-full flex flex-col items-start">
+
+        {/* RIPPED PAPER WRAPPER*/}
+        <div className="relative z-10 w-[70%] -mt-2 -ml-2 @container">
+          <Image
+            src="/images/HO-Paper.png"
+            alt="paper background"
+            width={876}
+            height={494}
+            className="w-full h-auto drop-shadow-md block"
+            priority
+          />
+
+          {/* HACKER OLYMPICS TEXT */}
+          <div className="absolute top-[clamp(8px,2vw,20px)] left-1/2 -translate-x-1/2 w-[91%] flex flex-col items-center text-black">
+            <h2
+              style={{ fontFamily: "var(--font-koulen)" }}
+              className="text-[clamp(14px,11cqw,96px)] uppercase text-neutral-900">
+              Hacker Olympics
+            </h2>
+            <p 
+              style={{ fontFamily: "var(--font-sometype-mono)" }}
+              className="text-[clamp(6px,2.5cqw,24px)] px-4 lg:px-8 text-neutral-800 leading-relaxed"
+            >
+                Hacker Olympics is our alternative competition stream designed for beginner hackers with little to no coding experience. We encourage everyone to try building a hack at SheHacks+, but we know jumping straight in can feel daunting. Beginners can apply for Hacker Olympics instead, a track built to grow coding skills and tech knowledge over the course of the event.
+            </p>
+          </div>
+
+          {/* LEARN MORE */}
+          <div className="flex justify-center -mt-[clamp(8px,1.2cqw,24px)]">
+            <Link
+              href="/olympics"
+              aria-label="Learn more about Hacker Olympics"
+              className="group inline-block"
+            >
+              <Image
+                src="/images/learn-more.png"
+                alt="Learn More"
+                width={279}
+                height={76}
+                priority
+                sizes="(max-width: 1440px) 20vw, 279px"
+                className="
+                  h-auto
+                  w-[clamp(100px,20vw,279px)]
+                  transition-transform duration-200
+                  group-hover:scale-[1.01] 
+                  group-active:scale-[0.985]
+                  hover:brightness-110
+                  drop-shadow-md
+                "
+              />
+            </Link>
+          </div>
+        </div>
+      </div>     
     </section>
   );
 }
