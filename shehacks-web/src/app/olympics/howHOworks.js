@@ -1,60 +1,210 @@
-import Image from "next/image";
- export default function HOInfo() {
-    return (
-        <section
-        id = "howHOworks"
-        className="relative scroll-mt-28 pt-24 md:pt-10"
-        style = {{paddingBottom: "clamp(220px, 28vw, 140px)"}}>
-            <div className="relative z-10 max-w-4xl mx-auto px-6 text-left">
-                {/*This section has the title */}
-                <div className= "relative inline-block">
-                    <h2 className="[text-shadow:1px_1px_2px_rgba(0,0,0,1)] text-2xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold italic leading-relaxed">
-                        How Does Hacker <br/> Olympics Work?
-                    </h2>
-                    <div className="absolute top-[15%] left-[105%] w-[4vw] h-[4vw] ">
-                        <Image
-                        alt=""
-                        aria-hidden
-                        src= "/images/topstars.png"
-                        fill 
-                        priority
-                        />
-                    </div>
-                </div>
-                {/*This has the paragraph and tv image */}
-                <div className="flex flex-col md:flex-row md:items-start max-w-4xl mx-auto gap-6">
-                    <p className="max-w-xl leading-relaxed ">
-                        <br/>
-                        <br/>
-                    Hackers in this stream will work in teams of 4 to complete a project (“mini hack”) instead of competing in the regular stream. The project will be built upon skills taught in workshops that run during SheHacks+, and are specifically designed for beginners in the Hacker Olympics stream.
-                    Bridge the skills gap that drives the lack of diversity in the tech industry
-                    <br/><br/>Women and non-binary individuals face more barriers to exploring tech interests and getting the education and experience to enter the tech industry. Hacker Olympics is their first step in bridging the gap.
-                    <br/>⧆⧆ {">>>>>>>"}
-                    </p>
-                    <div className="relative w-[70vw] max-w-[400px] sm:w-[48vw] md:w-[360px] lg:w-[400px] mx-auto sm:mt-[-10px] lg:mt-[-50px]">
-                        <Image
-                          src="/images/tv.png"
-                          alt=""
-                          aria-hidden
-                          width={1000}
-                          height={1000}
-                          priority
-                          className="w-full h-auto"
-                        />
-                        <div className="absolute top-[-10%] right-[5%] w-[14px] sm:w-[20px] md:w-[26px]">
-                            <Image
-                              src="/images/topstars.png"
-                              alt=""
-                              aria-hidden
-                              width={20}
-                              height={20}
-                              priority
-                              className="w-full h-auto"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>            
-    )
- }
+const CANVAS_WIDTH = 1440;
+
+export default function HowHOWorks() {
+  return (
+    <>
+      {/* Background */}
+      <img
+        src="/images/hacker-olympics/backgrounds/ho-background1.png"
+        alt="background image with scattered papers and folders"
+        style={{ width: CANVAS_WIDTH, height: 2576, position: 'absolute', top: 0, left: 0 }}
+      />
+
+      {/* Text content */}
+      <p
+        className="font-koulen"
+        style={{
+          position: 'absolute',
+          top: 795,
+          left: 120,
+          fontSize: 64,
+          transform: 'rotate(-4deg)',
+          color: 'black',
+        }}
+      >
+        HACKER OLYMPICS
+      </p>
+
+      <p
+        className="font-londrina"
+        style={{
+          position: 'absolute',
+          top: 877.08,
+          left: 89,
+          width: 537.88,
+          textAlign: 'center',
+          fontSize: 32,
+          transform: 'rotate(-4deg)',
+          color: '#BD0000',
+        }}
+      >
+        New to tech or hackathons in general?
+      </p>
+
+      <p
+        className="font-sometype"
+        style={{
+          width: 415,
+          position: 'absolute',
+          top: 950,
+          left: 145,
+          fontSize: 24,
+          transform: 'rotate(-4deg)',
+          color: 'black',
+          lineHeight: '1.2',
+        }}
+      >
+        <strong>SheHacks </strong> offers <strong>Hacker Olympics</strong> for beginners who are
+        new and open to learning more about tech through <strong>beginner workshops</strong> and{' '}
+        <strong>hacker challenges. Win prizes</strong> and other opportunities with{' '}
+        <strong>Hacker Olympics</strong>. Compete against other beginners at a similar skill
+        level.
+      </p>
+
+      <p
+        className="font-koulen"
+        style={{
+          position: 'absolute',
+          top: 1445,
+          left: 273,
+          fontSize: 49,
+          transform: 'rotate(3.5deg)',
+          color: 'black',
+        }}
+      >
+        HOW DOES HACKER OLYMPICS WORK?
+      </p>
+
+      <p
+        className="font-sometype"
+        style={{
+          width: 415,
+          position: 'absolute',
+          top: 1690,
+          left: 510,
+          fontSize: 18,
+          transform: 'rotate(-2.36deg)',
+          color: 'black',
+          lineHeight: '1.2',
+        }}
+      >
+        <strong>Hackers </strong>in this stream will work in <strong> teams of 4 </strong>to
+        complete a <strong>project (“mini hack”</strong>) instead of competing in the regular
+        stream. The project will be built upon <strong>skills taught in workshops</strong> that
+        run during <strong>SheHacks+</strong>, and are specifically{' '}
+        <strong>designed for beginners</strong> in the <strong>Hacker Olympics</strong> stream.
+        Bridge the <strong>skills gap</strong> that drives the{' '}
+        <strong>lack of diversity</strong> in the tech industry.
+        <br />
+        <br />
+        <strong>Women and non-binary individuals</strong> face more barriers to exploring{' '}
+        <strong>tech interests</strong> and getting the{' '}
+        <strong>education and experience</strong> to enter the tech industry.{' '}
+        <strong>Hacker Olympics </strong>is their <strong>first <br />step</strong> in{' '}
+        <strong>bridging the gap</strong>.
+      </p>
+
+      {/* SheHacks top logo as text */}
+      <p
+        className="font-lobster"
+        style={{
+          position: 'absolute',
+          top: 270,
+          left: 1025,
+          fontSize: 300,
+          transform: 'rotate(8deg)',
+          color: '#FD0000',
+        }}
+      >
+        11
+      </p>
+
+      <p
+        className="font-koulen"
+        style={{
+          position: 'absolute',
+          top: 440,
+          left: 975,
+          fontSize: 85,
+          transform: 'rotate(8deg)',
+          color: 'white',
+          filter: 'drop-shadow(0 6px 4px rgba(0,0,0,0.5))',
+        }}
+      >
+        SHEHACKS
+      </p>
+
+      {/* Decorative images */}
+      <img
+        src="/images/hacker-olympics/elements/logo-with-glass.png"
+        alt="hacker olympics logo with a magnifying glass"
+        style={{ width: 675, height: 557, position: 'absolute', top: 1620, left: 3 }}
+      />
+      <img
+        src="/images/hacker-olympics/elements/l-lamp.png"
+        alt="lamp"
+        style={{ width: 1200, height: 1550, position: 'absolute', top: 35, left: -5 }}
+      />
+      <img
+        src="/images/hacker-olympics/elements/r-lamp.png"
+        alt="lamp"
+        style={{
+          width: 660,
+          height: 1500,
+          position: 'absolute',
+          top: 945,
+          left: 780,
+          transform: 'rotate(1deg)',
+        }}
+      />
+
+      {/* Strings */}
+      <div
+        style={{
+          width: 618.6339972177843,
+          height: 2,
+          position: 'absolute',
+          top: 758,
+          left: 367,
+          transform: 'rotate(2.59deg)',
+          backgroundColor: '#BD0000',
+          filter: 'drop-shadow(0 6px 4px rgba(0,0,0,1))',
+        }}
+      />
+      <div
+        style={{
+          width: 270.7803503791412,
+          height: 2,
+          position: 'absolute',
+          top: 1550,
+          left: 483,
+          transform: 'rotate(-105deg)',
+          backgroundColor: '#BD0000',
+          filter: 'drop-shadow(0 6px 4px rgba(0,0,0,1))',
+        }}
+      />
+
+      {/* Pins */}
+      <img
+        src="/images/hacker-olympics/elements/pin.png"
+        alt="pin"
+        style={{ width: 59, height: 57, position: 'absolute', top: 719, left: 337 }}
+      />
+      <img
+        src="/images/hacker-olympics/elements/pin.png"
+        alt="pin"
+        style={{ width: 59, height: 57, position: 'absolute', top: 747, left: 955 }}
+      />
+      <img
+        src="/images/hacker-olympics/elements/pin.png"
+        alt="pin"
+        style={{ width: 59, height: 57, position: 'absolute', top: 1389, left: 552 }}
+      />
+      <img
+        src="/images/hacker-olympics/elements/pin.png"
+        alt="pin"
+        style={{ width: 59, height: 57, position: 'absolute', top: 1644, left: 621 }}
+      />
+    </>
+  );
+}
