@@ -13,6 +13,7 @@ import SheHacksTeam from "./components/shehacksteam";
 import History from "./components/history";
 import Wits from "./components/wits";
 import Sponsor from "./components/sponsor";
+import TickerTape from "./components/tickertape";
 
 export default function Home() {
   return (
@@ -21,6 +22,12 @@ export default function Home() {
 
       <main className="px-8 sm:px-20 pb-20">
         <Landing />
+
+      <TickerTape />
+
+      <section id="about" className="scroll-mt-28 py-24">
+        
+      </section>
 
         <section id="about" className="scroll-mt-28 py-24">
           <About />
