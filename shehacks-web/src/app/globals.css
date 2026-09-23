@@ -125,3 +125,6 @@ html, body {
 .animate-title {
   animation: title-scroll 25s linear infinite;
 }
+html, body {
+  cursor: url('/images/magnifying-glass-cursor.png') 20 20, auto;
+}
