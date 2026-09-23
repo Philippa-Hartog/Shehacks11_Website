@@ -1,38 +1,70 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+
 
 const NAV_LINKS = [
   { label: "ABOUT", href: "#about" },
   { label: "SPONSOR", href: "#sponsor" },
-  { label: "OLYMPICS", href: "#olympics" },
-  { label: "COMMUNITY", href: "#community" },
+  { label: "HACKER OLYMPICS", href: "#hacker-olympics" },
   { label: "FAQ", href: "#faq" },
+  { label: "GALLERY", href: "#gallery" },
 ];
-
-// Logos scale together
-const LOGO_SIZES = "w-[clamp(48px,7vw,96px)]";
-// Nav text + gap scale
-const NAV_TEXT_BASE  = "text-[clamp(11px,1.1vw,16px)]";
-const NAV_TEXT_TIGHT = "max-[520px]:text-[11px] max-[460px]:text-[10px]";
-const NAV_GAP_BASE   = "gap-[clamp(10px,2vw,36px)]";
-const NAV_GAP_TIGHT  = "max-[520px]:gap-2 max-[460px]:gap-1.5";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const[isVisible, setIsVisible] = useState(true);
+  const[lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect (() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      //show navbar if scrolling up or near the top
+      if (currentScrollY < 10 || currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+     //if scrolling down, hide navbar
+      else {
+        setIsVisible(false);
+      }
+
+      setLastScrollY(currentScrollY)
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true});
+    return () => window.removeEventListener("scroll", handleScroll); 
+  }, [lastScrollY]);
 
   return (
-    <header className="w-full text-white">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 text-black transition-transform duration-300 ease-in-out ${
+      isVisible ? "translate-y-0" : "-translate-y-full"
+    }`}>
+
+      {/* CAUTION TAPE */}
+      <div className="absolute top-0 left-0 w-full h-[clamp(20px,2.5vw,36px)] overflow-hidden select-none pointer-events-none">
+        <Image 
+          src="/images/caution_tape.png"
+          alt="Caution tape background"
+          fill
+          sizes="100vw"
+          className="object-cover object-top"
+          priority
+        />
+      </div>
+
       <nav className="w-full px-4 py-0 flex items-start justify-between">
+        
         {/* LOGOS */}
-        <div className="flex items-start gap-3 m-0 p-0 shrink-0 ml-[clamp(8px,5vw,80px)]">
+        <div className="relative flex items-start gap-1 m-0 p-0 shrink-0 ml-[clamp(9px,6.2vw,90px)] z-50">
           <a
             id="mlh-trust-badge"
             href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Major League Hacking 2026 Hackathon Season"
-            className={LOGO_SIZES}
+            className={`mt-0 shrink-0 w-[clamp(48px,7vw,96px)]`}
           >
             <img
               src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg"
@@ -40,60 +72,101 @@ export default function Navbar() {
               className="w-full h-auto"
             />
           </a>
-        <a href="./">
-          <Image
-            src="/images/SHnavlogo.png"
-            alt="SheHacks"
-            width={98}
-            height={74}
-            className={`${LOGO_SIZES} h-auto select-none pointer-events-none mt-[clamp(6px,1.2vw,20px)]`}
-            priority
-          />
-        </a>
+            <a href="./" 
+            className="mt-[clamp(7px,1.6vw,24px)] shrink-0"
+            >
+              <Image
+                src="/images/logo.png"
+                alt="SheHacks"
+                width={132}
+                height={80}
+                className={`w-[clamp(66px,9.2vw,132px)] h-auto select-none pointer-events-none`}
+                priority
+              />
+            </a>
         </div>
 
         {/* DESKTOP NAV (visible ≥ 400px) */}
-        <div className="hidden min-[400px]:flex flex-1 min-w-0 max-w-full justify-center">
-          <div className="flex flex-col items-center min-[400px]:-translate-x-[clamp(6px,0.8vw,18px)] min-[400px]:translate-y-[clamp(10px,1.6vw,24px)] max-w-full">
-            {/* RAIL: shared width for words + line */}
-            <div className="w-[min(50vw,1118px)] max-[520px]:w-[min(82vw,1000px)] max-w-full">
-              {/* Words — single row, constrained to rail width */}
-              <ul
-                className={[
-                  "flex flex-nowrap items-center justify-center uppercase font-semibold tracking-wide",
-                  "px-[4px] overflow-hidden",
-                  "translate-y-[clamp(2px,0.4vw,6px)]", // ↓ move words down (increase to go lower)
-                  NAV_GAP_BASE,
-                  NAV_GAP_TIGHT,
-                  NAV_TEXT_BASE,
-                  NAV_TEXT_TIGHT,
-                ].join(" ")}
-              >
-                {NAV_LINKS.map((i) => (
-                  <li key={i.href} className="whitespace-nowrap">
-                    <a href={i.href} className="hover:opacity-90">
-                      {i.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Navline — same rail width, sits right below words */}
+        <div className="hidden min-[400px]:flex flex-1 min-w-0 justify-center items-start mt-[clamp(20px,4.62vw,67px)] z-10">
+          <div className="relative flex items-center justify-center w-[clamp(400px,67vw,974px)] max-w-full">
+              
+              {/* Yellow navline — sits right behind words */}
               <Image
-                src="/images/navline.png"
+                src="/images/yellow_navbar.png"
                 alt="Navigation line"
-                width={1410}
-                height={69}
-                className="
-                  pointer-events-none select-none block
-                  w-full h-auto
-                  mt-[clamp(1px,0.01vw,5px)]  /* ↑ increase = more gap; decrease = tighter */
-                "
-                priority
+                width={974}
+                height={60}
+                className="w-full h-auto pointer-events-none select-none drop-shadow-sm"
               />
+
+              {/* Text layer */}
+              <div className="absolute inset-0 flex items-center justify-between px-[clamp(15px,3.8vw,55px)]">
+              
+                {/* Left: Navigation links */}
+                <ul className="font-koulen flex items-center min-w-0 gap-[clamp(8px,2.7vw,40px)] text-[clamp(10px,1.37vw,20px)]">
+                  {NAV_LINKS.map((i) => (
+                    <li key={i.href} className="whitespace-nowrap">
+                      <a
+                        href={i.href} 
+                        style={{ fontFamily: "var(--font-koulen), sans-serif" }}
+                        className="hover:opacity-70 transition-opacity"
+                      >
+                        {i.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                
+                {/* Right: Social logos*/}
+                <div className="flex items-center gap-[clamp(16px,2.7vw,40px)]">
+                  <a
+                    href="https://www.linkedin.com"
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="hover:opacity-70 transition-opacity"
+                  >
+                    <Image
+                      src="/images/linkedin2.png"
+                      alt="Linkedin"
+                      width={22}
+                      height={22}
+                      className="w-[clamp(4px,1.5vw,22px)] h-auto"
+                    />
+                  </a>
+
+                  <a 
+                    href="https://instagram.com"
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="hover:opacity-70 transition-opacity"
+                  >
+                    <Image
+                      src="/images/instagram2.png" 
+                      alt="Instagram" 
+                      width={24} 
+                      height={22}
+                      className="w-[clamp(14px,1.7vw,24px)] h-auto"
+                    />
+                  </a>
+
+                  <a 
+                    href="https://facebook.com"
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="hover:opacity-70 transition-opacity"
+                  >
+                    <Image
+                      src="/images/facebook2.png" 
+                      alt="Facebook" 
+                      width={18}
+                      height={22}
+                      className="w-[clamp(10px,1.2vw,18px)] h-auto"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
         {/* HAMBURGER (visible < 400px) */}
         <div className="block min-[400px]:hidden mt-[3vw]">
@@ -106,9 +179,9 @@ export default function Navbar() {
           >
             <span className="sr-only">Menu</span>
             <div className="space-y-1">
-              <span className="block h-0.5 w-6 bg-white" />
-              <span className="block h-0.5 w-6 bg-white" />
-              <span className="block h-0.5 w-6 bg-white" />
+              <span className="block h-0.5 w-6 bg-black" />
+              <span className="block h-0.5 w-6 bg-black" />
+              <span className="block h-0.5 w-6 bg-black" />
             </div>
           </button>
         </div>
