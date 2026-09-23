@@ -1,0 +1,287 @@
+.sponsorsSection {
+  width: 100%;
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  background: url("/images/sponsors/Red BG.png") center / 100% 100% no-repeat;   
+}
+
+.sponsorContent {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.cardsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+
+.cardDeck {
+  position: relative;
+  width: 650px;
+  height: 520px;
+  flex-shrink: 0;
+  perspective: 1200px;
+}
+
+.card {
+  position: absolute;
+  width: 175px;
+  aspect-ratio: 2.5 / 3.5;
+  perspective: 1000px;
+  cursor: pointer;
+
+  transition:
+    left 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.3s ease;
+}
+
+.deckCard {
+  left: calc(var(--card-index) * 45px);
+  top: 50%;
+
+  transform:
+    translateY(-50%)
+    rotate(calc((var(--card-index) - 2.5) * 1.2deg));
+
+  z-index: calc(20 + var(--card-index));
+}
+
+.activeCard:hover {
+  filter: drop-shadow(
+    0 18px 20px rgba(0, 0, 0, 0.3)
+  );
+}
+
+
+/* dealing positions */
+.topRight {
+  left: 86%;
+  top: 20%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(4deg);
+
+  z-index: 30;
+}
+
+.middle {
+  left: 50%;
+  top: 20%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(0deg);
+
+  z-index: 50;
+}
+
+.topLeft {
+  left: 14%;
+  top: 20%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-4deg);
+
+  z-index: 28;
+}
+
+.bottomRight {
+  left: 86%;
+  top: 80%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(5deg);
+
+  z-index: 27;
+}
+
+.bottomMiddle {
+  left: 50%;
+  top: 80%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-2deg);
+
+  z-index: 26;
+}
+
+.bottomLeft {
+  left: 14%;
+  top: 80%;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-5deg);
+
+  z-index: 25;
+}
+
+
+/*card FLIPPPPP*/
+.cardInner {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.dealt .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFace {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.cardFace img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.cardBack {
+  transform: rotateY(0deg);
+}
+
+.cardFront {
+  transform: rotateY(180deg);
+}
+
+
+.previousSponsors {
+  position: relative;
+
+  width: 125px;
+  height: 175px;
+
+  flex-shrink: 0;
+
+  scale: 1.2;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.previousSponsors img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.previousSponsors:hover {
+  transform: translateY(-5px);
+
+  filter: drop-shadow(
+    0 12px 15px rgba(0, 0, 0, 0.2)
+  );
+}
+
+
+/* become a sponsor */
+.sponsorCTA {
+  margin-top: 30px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 35px;
+  padding-left: 10px;
+}
+
+.sponsorCTA h2 {
+  margin: 0;
+
+  color: #f4efe2;
+
+  font-size: 30px;
+  font-weight: 800;
+  
+  letter-spacing: -1px;
+}
+
+.sponsorButton {
+  width: 100px;
+  height: 38px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #f4c542;
+  color: #171717;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+}
+
+.sponsorButton:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sponsorButton:active {
+  transform: translateY(2px);
+
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.2);
+}
