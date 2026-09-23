@@ -1,4 +1,5 @@
-import { Geist, Geist_Mono, Koulen } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Koulen } from "next/font/google";
 import "./globals.css";
 
 const koulen = Koulen({
@@ -32,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${koulen.variable} antialiased`}
+        className={`${koulen.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
