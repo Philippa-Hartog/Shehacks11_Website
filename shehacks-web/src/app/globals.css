@@ -86,3 +86,22 @@ html, body {
 .team-viewport { overflow: hidden; }
 .team-track { display:flex; gap: 40px; transition: transform 600ms ease-in-out; }
 .team-track.no-anim { transition: none; } /* used when we instantly reset after a step */
+
+.card-hover {
+  position: relative;
+  display: inline-block;
+  transition: transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1),
+              filter 350ms ease;
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-hover:hover {
+    transform: scale(1.12) translateY(-12px);
+    filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.35));
+  }
+}
+
+.card-hover:active {
+  transform: scale(1.05);
+}

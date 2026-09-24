@@ -13,6 +13,7 @@ import SheHacksTeam from "./components/shehacksteam";
 import History from "./components/history";
 import Wits from "./components/wits";
 import Sponsor from "./components/sponsor";
+import TeamCards from "./components/teamcards";
 
 export default function Home() {
   return (
@@ -50,6 +51,7 @@ export default function Home() {
           <Connect />
         </section>
         
+        <TeamCards />
         <section id="team" className="scroll-mt-28 py-24">
           <SheHacksTeam />
         </section>
