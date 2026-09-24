@@ -40,9 +40,8 @@ export default function Home() {
           <History /> {/* has id="history" inside */}
         </div>
         <Wits /> {/* has id="wits" inside */}
-        <section id="faq" className="scroll-mt-28 pt-15">
-          <Faq />
-        </section>               
+        <Faq />
+
 
       </main>
         <footer className="pb-5">

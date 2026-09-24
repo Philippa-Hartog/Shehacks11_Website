@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 
 const DEFAULT_ITEMS = [
   { q: "When are Hacker Applications?", a: "Hacker applications will be released in November, Keep an eye out on our Social media to be kept up to date with information on SheHacks+." },
@@ -13,74 +12,126 @@ const DEFAULT_ITEMS = [
   { q: "I don’t attend a Canadian university. Can I still apply?", a: "Yes! SheHacks+ welcomes students from around the world to participate. The only downside is we may not be able to reimburse your travel costs to our venue." },
 ];
 
+// These bounds hide the empty margins in the original PNG exports.
+const ART = {
+  paper: {
+    file: "white_stickynote.png",
+    bounds: [31.4, 50, 34.6, 35.4],
+  },
+  label: {
+    file: "red_square.png",
+    bounds: [33.8, 47.8, 14, 5.3],
+  },
+  footprints: {
+    file: "Feather.png",
+    bounds: [35.5, 29.5, 26.5, 46.5],
+  },
+  hearts: {
+    file: "hearts_card.png",
+    bounds: [33.5, 23.8, 34.6, 47.8],
+  },
+  spades: {
+    file: "spades_card.png",
+    bounds: [33.5, 23.8, 34.6, 47.8],
+  },
+  diamonds: {
+    file: "dimond_card.png",
+    bounds: [33.5, 23.8, 34.6, 47.8],
+  },
+};
+
+function Artwork({ name, className = "" }) {
+  const { file, bounds } = ART[name];
+  const [x, y, width, height] = bounds;
+
+  return (
+    <div
+      aria-hidden="true"
+      className={`absolute bg-no-repeat pointer-events-none select-none ${className}`}
+      style={{
+        backgroundImage: `url("/images/faq/${file}")`,
+        backgroundSize: `${10000 / width}% ${10000 / height}%`,
+        backgroundPosition: `${(x / (100 - width)) * 100}% ${
+          (y / (100 - height)) * 100
+        }%`,
+      }}
+    />
+  );
+}
+
 export default function Faq({ items = DEFAULT_ITEMS }) {
   const [open, setOpen] = useState(null);
 
   return (
-    <section id="faq" className="relative scroll-mt-28 py-5 sm:py-15 w-full">
-      <h2 className="text-center font-semibold text-white"
-          style={{ fontSize: "clamp(40px, 5vw, 50px)" }}>
-        FAQ
-      </h2>
-      <div className="pointer-events-none absolute right-[150] top-[-50] hidden sm:block opacity-100">
-        <Image
-          src="/images/faqstars.png"
-          alt=""
-          width={48*2}
-          height={48*2}
-          className="select-none"
-          priority
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="relative isolate scroll-mt-28 -mx-8 overflow-hidden pt-[clamp(260px,65vw,650px)] px-6 pb-[115px] sm:-mx-20 sm:px-[9%] sm:pb-[170px]"
+    >
+      <div className="relative w-full max-w-[1000px] mx-auto [container-type:inline-size]">
+        <Artwork
+          name="footprints"
+          className="top-[-65cqw] left-[10%] w-[82%] h-auto aspect-[26.5/46.5] transform-none z-0 opacity-60 [clip-path:inset(0_0_calc(100%_-_65cqw)_0)]"
         />
-      </div>
-    
-      <div className="mx-auto mt-6 sm:mt-8 w-full max-w-3xl px-4">
-        <ul className="divide-y divide-white/15">
-          {items.map((item, i) => {
-            const isOpen = open === i;
-            return (
-              <li key={i} className="py-3 sm:py-4">
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="group w-full flex items-center justify-between gap-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded"
-                >
-                  <span
-                    className="text-white font-semibold tracking-tight"
-                    style={{ fontSize: "clamp(14px, 1.6vw, 18px)" }}
+
+        <div className="relative isolate w-full min-h-[660px] pt-[82px] px-[6%] pb-[145px] text-[#35332f] sm:min-h-[850px] sm:pt-[120px] sm:pb-[230px]">
+          <Artwork name="paper" className="z-0 inset-0" />
+
+          <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none" aria-hidden="true">
+            <Artwork
+              name="footprints"
+              className="top-[-65cqw] left-[10%] w-[82%] h-auto aspect-[26.5/46.5] transform-none z-0 opacity-60"
+            />
+          </div>
+
+          <div className="absolute top-[-34px] left-[5%] grid place-items-center w-[58%] h-[88px] [transform:rotate(0.5deg)] z-[2] sm:top-[-56px] sm:left-[5.5%] sm:w-[44%] sm:h-[145px]">
+            <Artwork name="label" className="inset-0" />
+            <h2 id="faq-heading" className="relative m-0 text-[#fff7e9] [font-family:Xilla,sans-serif] text-[clamp(48px,7vw,76px)] font-bold leading-none">
+              FAQ
+            </h2>
+          </div>
+
+          <ul className="relative z-[2] m-0 p-0 list-none">
+            {items.map((item, i) => {
+              const isOpen = open === i;
+
+              return (
+                <li key={item.q} className="border-b border-[rgb(68_62_53/50%)]">
+                  <button
+                    type="button"
+                    id={`faq-question-${i}`}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
+                    className="flex items-center justify-between gap-3 w-full min-h-[56px] py-3 px-[5px] border-0 border-none bg-transparent text-inherit text-left [font-family:Inconsolata,monospace] text-[16px] font-normal leading-[1.4] cursor-pointer hover:bg-[rgb(104_68_50/5%)] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-[#852d23] focus-visible:outline-offset-4 sm:gap-5 sm:min-h-[60px] sm:py-[14px] sm:px-6 sm:text-[clamp(16px,1.8vw,21px)]"
+                    onClick={() => setOpen(isOpen ? null : i)}
                   >
-                    {item.q}
-                  </span>
+                    <span>{item.q}</span>
 
-                  <span className="relative inline-flex h-5 w-5 items-center justify-center" aria-hidden="true">
-                    <span className="absolute h-[2px] w-3.5 bg-white transition-opacity duration-200" />
-                    <span
-                      className={`absolute h-3.5 w-[2px] bg-white transition-transform duration-200 ${
-                        isOpen ? "scale-y-0" : "scale-y-100"
-                      }`}
-                    />
-                  </span>
-                </button>
+                    <span className="shrink-0 text-[28px] font-normal leading-none" aria-hidden="true">
+                      {isOpen ? "−" : "+"}
+                    </span>
+                  </button>
 
-                {/* answer */}
-                <div
-                  className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p
-                      className="pt-3 text-white/95 font-normal leading-relaxed"
-                      style={{ fontSize: "clamp(13px, 1.4vw, 16px)" }}
-                    >
-                      {item.a}
-                    </p>
+                  <div
+                    id={`faq-answer-${i}`}
+                    aria-labelledby={`faq-question-${i}`}
+                    hidden={!isOpen}
+                    className="pt-0 px-[5px] pb-4 sm:px-6 sm:pb-5"
+                  >
+                    <p className="m-0 [font-family:Inconsolata,monospace] text-[clamp(16px,1.6vw,19px)] leading-[1.6]">{item.a}</p>
                   </div>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>   
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="absolute z-[2] right-[-50px] bottom-[-80px] w-[260px] h-[370px] pointer-events-none [transform:scale(0.62)] origin-bottom-right sm:right-[-105px] sm:bottom-[-125px] sm:transform-none sm:origin-center" aria-hidden="true">
+            <Artwork name="diamonds" className="w-[195px] h-[270px] top-[95px] left-0 [transform:rotate(-32deg)]" />
+            <Artwork name="hearts" className="w-[195px] h-[270px] top-0 left-[65px] [transform:rotate(-26deg)]" />
+            <Artwork name="spades" className="w-[195px] h-[270px] top-[85px] left-[70px] [transform:rotate(-13deg)]" />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
