@@ -1,6 +1,37 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
+
 export default function Landing() {
+  const targetDate = new Date("2027-01-08T00:00:00").getTime();
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const update = () => {
+      const distance = targetDate - Date.now();
+
+      setTimeLeft({
+        days: Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24))),
+        hours: Math.max(0, Math.floor((distance / (1000 * 60 * 60)) % 24)),
+        minutes: Math.max(0, Math.floor((distance / (1000 * 60)) % 60)),
+        seconds: Math.max(0, Math.floor((distance / 1000) % 60)),
+      });
+    };
+
+    update();
+    const interval = setInterval(update, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="home"
@@ -86,11 +117,11 @@ export default function Landing() {
             absolute
             z-50
             pointer-events-none
-            top-[-3%]
-            left-[6%]
+            top-[-3.5%]
+            left-[4%]
             w-[100%]
             h-auto
-            max-w-[850px]
+            max-w-[900px]
           "
         />
 
@@ -131,22 +162,60 @@ export default function Landing() {
         />
 
         {/* Countdown tape */}
-        <Image
-          src="/images/landing/timer.png"
-          alt=""
-          width={1565}
-          height={609}
+        <div
           className="
             absolute
             z-40
-            pointer-events-none
             top-[20%]
             left-[-2%]
             w-[104%]
-            h-auto
-            max-w-[1565px]
           "
-        />
+        >
+          <Image
+            src="/images/landing/timer.png"
+            alt=""
+            width={1565}
+            height={609}
+            className="w-full h-auto"
+          />
+
+          {/* Live countdown */}
+          <div
+            className="
+              absolute
+              inset-0
+              flex
+              items-center
+              justify-center
+              gap-[4%]
+              font-bold
+              text-black
+              rotate-[-11deg]
+              pointer-events-none
+              scale-[1.5]
+            "
+          >
+            {[
+              [timeLeft.days, "DAYS"],
+              [timeLeft.hours, "HOURS"],
+              [timeLeft.minutes, "MINUTES"],
+              [timeLeft.seconds, "SECONDS"],
+            ].map(([value, label]) => (
+              <div
+                key={label}
+                className="flex flex-col items-center leading-none"
+              >
+                <span className="text-[clamp(28px,4vw,64px)]">
+                  {String(value).padStart(2, "0")}
+                </span>
+
+                <span className="text-[clamp(10px,1.2vw,20px)]">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Newspaper */}
         <Image
@@ -382,6 +451,42 @@ export default function Landing() {
           "
         />
 
+        {/* pin on paper with stamp */}
+        <Image
+          src="/images/landing/pin.png"
+          alt=""
+          width={59}
+          height={57}
+          className="
+            absolute
+            z-10
+            pointer-events-none
+            top-[62%]
+            right-[59%]
+            w-[80%]
+            h-auto
+            max-w-[59px]
+          "
+        />
+    
+        {/* ;string going from man to food */}
+        <Image
+          src="/images/landing/string-1.png"
+          alt=""
+          width={168}
+          height={598}
+          className="
+            absolute
+            z-10
+            pointer-events-none
+            top-[63%]
+            right-[62%]
+            w-[16%]
+            h-auto
+            max-w-[300px]
+          "
+        />
+
         {/* Our Mission*/}
         <Image
           src="/images/landing/our mission.png"
@@ -454,6 +559,24 @@ export default function Landing() {
           "
         />
 
+        {/* pin on food */}
+        <Image
+          src="/images/landing/pin.png"
+          alt=""
+          width={59}
+          height={57}
+          className="
+            absolute
+            z-10
+            pointer-events-none
+            top-[89.5%]
+            right-[75%]
+            w-[80%]
+            h-auto
+            max-w-[59px]
+          "
+        />
+
         {/* experience text box*/}
         <Image
           src="/images/landing/experience.png"
@@ -472,6 +595,24 @@ export default function Landing() {
           "
         />
 
+        {/* pin on experience */}
+        <Image
+          src="/images/landing/pin.png"
+          alt=""
+          width={59}
+          height={57}
+          className="
+            absolute
+            z-10
+            pointer-events-none
+            top-[97.9%]
+            right-[46.5%]
+            w-[80%]
+            h-auto
+            max-w-[59px]
+          "
+        />
+
         {/* connections text box*/}
         <Image
           src="/images/landing/connections.png"
@@ -487,6 +628,24 @@ export default function Landing() {
             w-[55%]
             h-auto
             max-w-[769px]
+          "
+        />
+
+        {/* pin on connections */}
+        <Image
+          src="/images/landing/pin.png"
+          alt=""
+          width={59}
+          height={57}
+          className="
+            absolute
+            z-10
+            pointer-events-none
+            top-[106%]
+            right-[65%]
+            w-[80%]
+            h-auto
+            max-w-[59px]
           "
         />
 
@@ -526,6 +685,42 @@ export default function Landing() {
           "
         />
 
+        {/* ;string going from diamond to experience */}
+        <Image
+          src="/images/landing/string-2.png"
+          alt=""
+          width={638}
+          height={183}
+          className="
+            absolute
+            z-10
+            pointer-events-none
+            top-[91%]
+            right-[21%]
+            w-[100%]
+            h-auto
+            max-w-[720px]
+          "
+        />
+
+        {/* ;string going from experience to connections */}
+        <Image
+          src="/images/landing/string-4.png"
+          alt=""
+          width={215}
+          height={192}
+          className="
+            absolute
+            z-10
+            pointer-events-none
+            top-[98.8%]
+            right-[50%]
+            w-[19%]
+            h-auto
+            max-w-[290px]
+          "
+        />
+
         {/* wanted stamp*/}
         <Image
           src="/images/landing/wanted stamp.png"
@@ -543,14 +738,176 @@ export default function Landing() {
             max-w-[302px]
           "
         />
+
+        {/* last year we had*/}
+        <Image
+          src="/images/landing/last year.png"
+          alt=""
+          width={544}
+          height={394}
+          className="
+            absolute
+            z-8
+            pointer-events-none
+            top-[117%]
+            right-[54%]
+            w-[55%]
+            h-auto
+            max-w-[544px]
+          "
+        />
+
+        {/* tape */}
+        <Image
+          src="/images/landing/tape.png"
+          alt=""
+          width={238}
+          height={90}
+          className="
+            absolute
+            z-8
+            pointer-events-none
+            top-[116.7%]
+            right-[54%]
+            w-[55%]
+            h-auto
+            max-w-[238px]
+          "
+        />
+
+        {/* applications*/}
+        <Image
+          src="/images/landing/Applications Polariod.png"
+          alt=""
+          width={283}
+          height={361}
+          className="
+            absolute
+            z-8
+            pointer-events-none
+            top-[123%]
+            right-[59.7%]
+            w-[55%]
+            h-auto
+            max-w-[283px]
+          "
+        />
+
+        {/* schools */}
+        <Image
+          src="/images/landing/schools polariod.png"
+          alt=""
+          width={300}
+          height={361}
+          className="
+            absolute
+            z-8
+            pointer-events-none
+            top-[123.22%]
+            right-[35%]
+            w-[55%]
+            h-auto
+            max-w-[300px]
+          "
+        />
+
+        {/* cities */}
+        <Image
+          src="/images/landing/cities polariod.png"
+          alt=""
+          width={300}
+          height={361}
+          className="
+            absolute
+            z-8
+            pointer-events-none
+            top-[123%]
+            right-[10%]
+            w-[55%]
+            h-auto
+            max-w-[300px]
+          "
+        />
+
+        {/* project */}
+        <Image
+          src="/images/landing/Projects Polariod.png"
+          alt=""
+          width={300}
+          height={361}
+          className="
+            absolute
+            z-8
+            pointer-events-none
+            top-[136%]
+            right-[47%]
+            w-[55%]
+            h-auto
+            max-w-[300px]
+          "
+        />
+
+        {/* attendeees */}
+        <Image
+          src="/images/landing/Attendees Polariod.png"
+          alt=""
+          width={285}
+          height={361}
+          className="
+            absolute
+            z-8
+            pointer-events-none
+            top-[136.2%]
+            right-[22%]
+            w-[40%]
+            h-auto
+            max-w-[290px]
+          "
+        />
+
+        {/* 5  million tags */}
+        <Image
+          src="/images/landing/pins on polariods.png"
+          alt=""
+          width={691}
+          height={394}
+          className="
+            absolute
+            z-8
+            pointer-events-none
+            top-[122.7%]
+            right-[22%]
+            w-[80%]
+            h-auto
+            max-w-[691px]
+          "
+        />
+
+        {/* Lamp */}
+        <Image
+          src="/images/landing/Lamp on board.png"
+          alt=""
+          width={405}
+          height={651}
+          className="
+            absolute
+            z-8
+            pointer-events-none
+            top-[105%]
+            right-[1%]
+            w-[25%]
+            h-auto
+            max-w-[405px]
+          "
+        />
       </div>
 
       {/* Second Bulletin board */}
       <div
         className="
           relative
-          z-0          
-          -mt-[3%] 
+          z-9         
+          -mt-[4.1%] 
           mx-auto
           w-[90%]
           max-w-[1247px]
@@ -565,7 +922,18 @@ export default function Landing() {
             block
             w-full
             h-auto
+            top-[100%]
           "
+        />
+      </div>
+
+      <div className="absolute bottom-[-120px] left-0 right-0 z-[100]">
+        <Image
+          src="/images/landing/wood frame.png"
+          alt=""
+          width={1440}
+          height={140}
+          className="w-full h-auto"
         />
       </div>
     </section>
