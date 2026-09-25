@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import About from "../app/components/about";
 
 import Faq from "./components/faq";
@@ -21,7 +19,7 @@ export default function Home() {
       <Navbar />
 
       <main className="w-full pb-20">
-        <div className="px-8 sm:px-20">
+        <div className="px-4 sm:px-20">
           <Landing />
 
           <section id="about" className="scroll-mt-28 py-24">
@@ -39,7 +37,7 @@ export default function Home() {
 
        {/* WOODEN BACKGROUND */}
       <div 
-        className="w-full relative bg-[url('/images/Wooden-Background.png')] bg-[length:100%_auto] bg-repeat-y bg-top py-16 sm:py-20 lg:py-50 px-8 sm:px-14 lg:px-26 pb-10 sm:pb-32 overflow-visible" 
+        className="w-full relative bg-[url('/images/Wooden-Background.png')] bg-[length:100%_100%] bg-no-repeat bg-top py-16 sm:py-20 lg:py-50 px-8 sm:px-14 lg:px-26 pb-10 sm:pb-32 overflow-visible" 
         style={{ "--footprint-unit": "clamp(6px, 1.4vw, 16px)" }} 
       >
         {/* BLUE(PINK)PRINT */}
@@ -62,6 +60,7 @@ export default function Home() {
 
             <Wits /> {/* has id="wits" inside */}
             <Faq />
+            
       </div>
 
       </main>
