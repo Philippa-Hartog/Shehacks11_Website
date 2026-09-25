@@ -26,7 +26,6 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
           alt="FAQ paper background"
           fill
           className="object-contain object-top drop-shadow-xl"
-          priority
         />
 
         {/* INVISIBLE FOOTPRINTS */}
@@ -47,7 +46,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
           />
         </div>
         
-        <div 
+        <div
           className="absolute top-[40%] left-[10%] pointer-events-none z-20"
           style={{width: "calc(var(--footprint-unit) * 9)"}}
         >
@@ -68,7 +67,6 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
             width={555}
             height={202}
             className="w-full h-auto"
-            priority
           />
           <span 
             style={{ fontFamily: "var(--font-koulen)" }}
@@ -80,7 +78,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
 
         {/* 11 CARDS */}
         <div 
-          className="hidden sm:block absolute -bottom-30 right-0 w-[clamp(140px,20vw,378px)] aspect-square pointer-events-none z-20 overflow-visible"         
+          className="hidden sm:block absolute -bottom-30 w-[clamp(140px,20vw,378px)] aspect-square pointer-events-none z-20 overflow-visible"         
           style={{ right: "calc(50% - 50vw)" }}
         >
           <Image
@@ -93,8 +91,9 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
         </div>
 
         {/* QUESTIONS */}
+        <div className="absolute inset-0 @container">
         <div 
-          className="absolute inset-0 pt-[10%] sm:pt-[15%] px-[10%] pb-[8%] overflow-y-auto"
+          className="h-full pt-[10%] sm:pt-[15%] px-[10%] pb-[8%] overflow-y-auto"
           style={{ fontFamily: "var(--font-sometype-mono)" }}
         >
           <ul className="divide-y divide-neutral-400/50">
@@ -107,7 +106,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
                     aria-expanded={isOpen}
                     className="group w-full flex items-center justify-between gap-4 text-left focus:outline-none"
                   >
-                    <span className="text-neutral-900 font-medium text-[clamp(12px,1.6vw,16px)]">
+                    <span className="text-neutral-900 font-medium text-[clamp(8px,2cqw,18px)] leading-relaxed">
                       {item.q}
                     </span>
 
@@ -129,7 +128,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="pt-2 text-neutral-700 text-[clamp(11px,1.4vw,14px)] leading-relaxed">
+                      <p className="pt-2 text-neutral-700 text-[clamp(8px,1.8cqw,14px)] leading-relaxed">
                         {item.a}
                       </p>
                     </div>
@@ -138,6 +137,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
               );
             })}
           </ul>
+        </div>
         </div>
 
       </div>
