@@ -6,9 +6,9 @@ export default function Wits() {
     <section id="wits" className="relative scroll-mt-28 w-full pt-12 pb-4 sm:pb-12">
       <div className="relative w-full @container min-h-[400px] sm:min-h-[550px] flex flex-col justify-center">
 
-        {/* FOOTPRINTS */}
+        {/* FOOTPRINT */}
         <div 
-          className="absolute top-[30%] left-[3%] pointer-events-none z-30"
+          className="absolute top-[25%] left-[3%] pointer-events-none z-30"
           style={{ width: "calc(var(--footprint-unit) * 9)" }}
         >
           <Image
@@ -22,7 +22,6 @@ export default function Wits() {
 
         {/* MAGNIFYING GLASS */}
         <div className="absolute top-[15%] left-0 ml-[calc(50%-50vw)] w-[clamp(145px,35%,480px)] pointer-events-none z-30">
-          <div className="w-full">
             <Image
               src="/images/magnifying-glass.png"
               alt="Magnifying glass"
@@ -30,15 +29,14 @@ export default function Wits() {
               height={480}
               className="w-full h-auto object-contain"
             />
-          </div>
         </div>
 
         {/* RIGHT CONTENT COLUMN */}
-        <div className="relative z-20 ml-auto w-[90%] sm:w-[65%] md:w-[55%] flex flex-col items-end pr-[4%] sm:pr-[8%]">
+        <div className="relative z-20 ml-auto w-[95%] sm:w-[72%] md:w-[62%] flex flex-col items-end pr-0 sm:pr-[8%] mr-[calc(50%-50vw)] sm:mr-0">
 
           {/* WITS LOGO */}
-          <div className="flex flex-col items-end text-right">
-            <div className="relative w-[clamp(200px,35cqw,490px)] aspect-[490/265] mb-2 sm:mb-3 mx-auto">
+          <div className="w-full flex justify-end">
+            <div className="relative w-[clamp(150px,35cqw,490px)] aspect-[490/265] mb-2 sm:mb-3">
               <Image
                 src="/images/wits.png"
                 alt="wits+"
@@ -64,13 +62,13 @@ export default function Wits() {
                 fontFamily: "var(--font-sometype-mono)",
                 transform: "rotate(1.96deg)"
               }}
-              className="absolute inset-0 flex flex-col justify-center px-[8%] py-[6%] text-black leading-snug antialiased"
+              className="absolute inset-0 flex flex-col justify-center px-[8%] py-[3%] text-black leading-snug antialiased"
             >
-              <p className="font-bold text-[clamp(12px,4cqw,35px)] mb-2 text-center">
+              <p className="font-bold text-[length:3.6cqw] mb-[1cqw] text-center">
                 Building a future for women+ in tech
               </p>
               
-              <p className="text-[clamp(8px,3cqw,30px)]">
+               <p className="text-[length:3cqw]">
                 WITS+ is a club at Western University that provides
                 its community with initiatives and resources to
                 inspire. We aim to empower women, women-identifying,
@@ -85,4 +83,4 @@ export default function Wits() {
       </div>
     </section>
   );
-}             
+}
