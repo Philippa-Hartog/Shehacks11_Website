@@ -20,26 +20,25 @@ export default function Olympics() {
       <div className="relative w-full flex flex-col items-start">
 
         {/* RIPPED PAPER WRAPPER*/}
-        <div className="relative z-10 w-[70%] -mt-2 -ml-2 @container">
+        <div className="relative z-10 w-[96%] sm:w-[85%] md:w-[70%] -mt-2 -ml-2 aspect-[876/494] [container-type:size]">
           <Image
             src="/images/HO-Paper.png"
             alt="paper background"
-            width={876}
-            height={494}
-            className="w-full h-auto drop-shadow-md block"
-            priority
+            width={631}
+            height={402}
+            className="w-full h-auto object-contain"
           />
 
           {/* HACKER OLYMPICS TEXT */}
-          <div className="absolute top-[clamp(8px,2vw,20px)] left-1/2 -translate-x-1/2 w-[91%] flex flex-col items-center text-black">
+          <div className="absolute top-[3.5cqw] left-1/2 -translate-x-1/2 w-[91%] flex flex-col items-center text-black">
             <h2
               style={{ fontFamily: "var(--font-koulen)" }}
-              className="text-[clamp(14px,11cqw,96px)] uppercase text-neutral-900">
+              className="text-[length:7.5cqw] leading-none uppercase text-neutral-900">
               Hacker Olympics
             </h2>
-            <p 
+            <p
               style={{ fontFamily: "var(--font-sometype-mono)" }}
-              className="text-[clamp(6px,2.5cqw,24px)] px-4 lg:px-8 text-neutral-800 leading-relaxed"
+              className="mt-[1.5cqw] px-[3cqw] text-[length:2.8cqw] leading-relaxed text-neutral-800"
             >
                 Hacker Olympics is our alternative competition stream designed for beginner hackers with little to no coding experience. We encourage everyone to try building a hack at SheHacks+, but we know jumping straight in can feel daunting. Beginners can apply for Hacker Olympics instead, a track built to grow coding skills and tech knowledge over the course of the event.
             </p>
@@ -53,10 +52,10 @@ export default function Olympics() {
               className="group inline-block"
             >
               <Image
-                src="/images/learn-more.png"
+                src="/images/Learn More Button.svg"
                 alt="Learn More"
-                width={279}
-                height={76}
+                width={270}
+                height={73}
                 priority
                 sizes="(max-width: 1440px) 20vw, 279px"
                 className="
