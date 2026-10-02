@@ -69,7 +69,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
           fill
           className="object-contain object-top drop-shadow-xl"
         />
-
+         </div>
         {/* INVISIBLE FOOTPRINTS */}
           <div
             className="absolute top-0 right-[10%] z-0 pointer-events-none "

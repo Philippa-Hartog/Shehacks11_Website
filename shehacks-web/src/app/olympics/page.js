@@ -5,11 +5,11 @@ import HowHOWorks from './howHOworks.js';
 import HOWinners from './ho-winners';
 import HOFaq from './ho-faq';
 import HOAbout from './ho-about';
+import NavBar from '../components/navbar';
 
 const CANVAS_WIDTH = 1440;
 const CANVAS_A_HEIGHT = 2576; // HowHOWorks
 const CANVAS_B_HEIGHT = 2490; // HOFaq + HOAbout
-
 function ScaledCanvas({ height, children }) {
   const wrapperRef = useRef(null);
   const [scale, setScale] = useState(1);
@@ -69,6 +69,7 @@ export default function HackerOlympicsPage() {
       />
 
       <ScaledCanvas height={CANVAS_A_HEIGHT}>
+        <NavBar/>
         <HowHOWorks />
       </ScaledCanvas>
 

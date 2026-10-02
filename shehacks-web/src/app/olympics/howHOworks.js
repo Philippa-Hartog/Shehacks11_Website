@@ -134,6 +134,40 @@ export default function HowHOWorks() {
         SHEHACKS
       </p>
 
+      {/* Apply now button*/}
+      <button
+        onClick= {()=>router.push('/some-page')} //TODO: Add correct application page
+        className="group transition-[filter] duration-300 ease-out hover:drop-shadow-[0_10px_14px_rgba(0,0,0,0.6)]"
+        style={{
+          border: 'none',
+          backgroundImage: "url('/images/hacker-olympics/elements/apply-now-button.png')",
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          width: 400,
+          height: 300,
+          position: 'absolute',
+          top: 780,
+          left: 745,
+          textAlign: 'center',
+          zIndex: 9,
+        }}
+      >
+        <p
+          className="font-koulen after:content-[''] after:absolute after:left-0 after:-bottom-[-6px] after:h-[10px] after:w-full after:origin-left after:scale-x-0 after:bg-[#BD0000] after:transition-transform after:duration-300 after:ease-out group-hover:after:scale-x-100"
+          style={{ 
+            position: 'absolute',
+            top: 95,
+            left: 78,
+            fontSize: 64,
+            transform: 'rotate(8deg)',
+            color: '#BD0000'
+          }}
+        >
+          APPLY NOW
+        </p>
+      </button>
+
       {/* Decorative images */}
       <img
         src="/images/hacker-olympics/elements/logo-with-glass.png"
