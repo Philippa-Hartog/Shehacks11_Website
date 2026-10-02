@@ -108,6 +108,7 @@ html, body {
   from { background-position-x: 0px; }
   to   { background-position-x: -70px; }
 }
+}
 
 @keyframes tape-scroll-sm {
   from { background-position-x: 0px; }
