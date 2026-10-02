@@ -14,6 +14,7 @@ import Sponsor from "./components/sponsor";
 import TeamCards from "./components/teamcards";
 import TickerTape from "./components/tickertape";
 import FlyAways from "./components/flyaways";
+import TeamFolders from "./components/teamfolders";
 
 export default function Home() {
   return (
@@ -87,6 +88,8 @@ export default function Home() {
           <Connect />
         </section>
         
+        <TeamFolders />
+
         <TeamCards />
         <section id="team" className="scroll-mt-28 py-24">
           <SheHacksTeam />

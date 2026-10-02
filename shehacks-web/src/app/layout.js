@@ -1,12 +1,6 @@
 import { Geist, Geist_Mono, Koulen, Londrina_Solid, Sometype_Mono, Newsreader, Inconsolata, Lobster} from "next/font/google";
 import "./globals.css";
 
-const koulen = Koulen({
-  weight: "400",
-  variable: "--font-koulen",
-  subsets: ["latin"],
-});
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,7 +25,7 @@ const londrina = Londrina_Solid({
 
 const sometype = Sometype_Mono({
   variable: "--font-sometype",
-  weight: ["400", "700"],
+  weight: ["400", "600", "700"],
   subsets: ["latin"],
 });
 
