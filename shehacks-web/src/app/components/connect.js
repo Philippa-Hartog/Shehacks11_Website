@@ -1,16 +1,43 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export default function Connect() {
+  const HEADING = "Connect With Us";
+  const [shown, setShown] = useState(0);
+  const [started, setStarted] = useState(false);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true);
+        } else {
+          setStarted(false);
+          setShown(0);
+        }
+      },
+      { threshold: 0.6 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+    useEffect(() => {
+    if (!started || shown >= HEADING.length) return;
+    const t = setTimeout(() => setShown((n) => n + 1), 85);
+    return () => clearTimeout(t);
+  }, [started, shown]);
   return (
     <div className="flex flex-col items-center w-full">
     {/* CD with one star above + one star to the left */}
     <div className="w-screen flex justify-end mt-16 mb-10">
       <div className="relative w-[40vw] max-w-[450px] min-w-[120px]">
         {/* LEFT STAR — bigger */}
-        <div className="
-          absolute left-0 -translate-x-full top-1/2 -translate-y-1/2
-          w-14 sm:w-16 md:w-20 aspect-square
-        ">
+        <div className="absolute left-0 -translate-x-full top-1/2 -translate-y-1/2 w-14 sm:w-16 md:w-20 aspect-square">
           <Image
             src="/images/star2.png"
             alt="star left"
@@ -34,8 +61,21 @@ export default function Connect() {
       <section className="relative w-full max-w-[1200px] mx-auto">
         {/* Centered text block */}
         <div className="flex flex-col items-center justify-center text-center py-8 px-4">
-          <h1 className="text-white text-lg sm:text-xl md:text-4xl lg:text-5xl font-bold">
-            Connect With Us
+          <h1
+            ref={headingRef}
+            className="text-white text-[32px] sm:text-[48px] lg:text-[64px] min-h-[1.2em]"
+          >
+            <span aria-hidden="true" style={{ fontFamily: "var(--font-koulen)" }}>
+              {HEADING.slice(0, shown)}
+            </span>
+            <span
+              aria-hidden="true"
+              className="caret"
+              style={{ fontFamily: "var(--font-koulen)" }}
+            >
+              |
+            </span>
+            <span className="sr-only">{HEADING}</span>
           </h1>
           <p className="mt-2 text-white text-xs sm:text-sm md:text-base lg:text-lg">
             wits.uwo@gmail.com
@@ -91,6 +131,22 @@ export default function Connect() {
         </div>
 
       </section>
+        <style jsx>{`
+        .caret {
+          animation: blink 0.7s step-end infinite;
+        }
+        @keyframes blink {
+          50% { opacity: 0; }
+        }
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          clip: rect(0 0 0 0);
+          white-space: nowrap;
+        }
+      `}</style>
     </div>
   );
 }
