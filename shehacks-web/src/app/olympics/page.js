@@ -5,7 +5,7 @@ import HowHOWorks from './howHOworks.js';
 import HOWinners from './ho-winners';
 import HOFaq from './ho-faq';
 import HOAbout from './ho-about';
-import NavBar from '../components/navbar';
+import NavBar from './ho-navbar';
 
 const CANVAS_WIDTH = 1440;
 const CANVAS_A_HEIGHT = 2576; // HowHOWorks
