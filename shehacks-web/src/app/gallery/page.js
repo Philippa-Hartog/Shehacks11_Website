@@ -1,20 +1,23 @@
-import Navbar from "./navbar";
+import Navbar from "../components/navbar";
 import Connect from "@/app/components/connect";
 import SheHacksTeam from "../components/shehacksteam";
 import GalleryPage from "@/app/components/GalleryPage";
 
 export default function Gallery_Page() {
-return ( <div className="font-sans min-h-screen text-white bg-[url('/images/background_main.png')] bg-cover bg-center"> <Navbar />
+return ( <div className="font-sans min-h-screen text-white bg-[url('/images/gallery_bg.png')] bg-[length:150%_150%] bg-center"> 
+<Navbar />
 
 
-  <main className="px-8 sm:px-20 pb-20">
+  <main className="pb-20">
+    <h2
+    className="w-full text-white text-xl sm:text-2xl md:text-3xl font-bold text-left uppercase font-koulen px-8 sm:px-20 pt-8"
+    >
+      Welcome to the SheHacks+ Gallery
+    </h2>
     <section
       id="gallery"
-      className="scroll-mt-28 py-24 flex flex-col items-center w-full gap-20"
+      className="scroll-mt-28 flex flex-col items-center w-full gap-10"
     >
-      <h2 className="w-full text-white text-xl sm:text-2xl md:text-3xl font-bold text-center uppercase">
-        Welcome to the SheHacks+ Gallery
-      </h2>
 
       <div className="w-full max-w-[900px] mx-auto flex justify-center">
         <GalleryPage
@@ -87,16 +90,6 @@ return ( <div className="font-sans min-h-screen text-white bg-[url('/images/back
       </div>
     </section>
   </main>
-
-  <footer className="pb-5">
-    <section id="connect" className="scroll-mt-28">
-      <Connect />
-    </section>
-
-    <section id="team" className="scroll-mt-28 py-24">
-      <SheHacksTeam />
-    </section>
-  </footer>
 </div>
 
 

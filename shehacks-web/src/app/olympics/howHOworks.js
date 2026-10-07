@@ -136,7 +136,7 @@ export default function HowHOWorks() {
 
       {/* Apply now button*/}
       <button
-        onClick= {()=>router.push('/some-page')} //TODO: Add correct application page
+        onClick= {()=>window.location.href = 'https://tally.so/r/rjxvML'} //TODO: Add correct application page
         className="group transition-[filter] duration-300 ease-out hover:drop-shadow-[0_10px_14px_rgba(0,0,0,0.6)]"
         style={{
           border: 'none',
