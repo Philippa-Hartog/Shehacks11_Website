@@ -3,11 +3,12 @@ import Landing from "./components/landing";
 import Winners from "./components/winners";
 import Olympics from "./components/olympics";
 import Connect from "./components/connect";
-import SheHacksTeam from "./components/shehacksteam";
 import History from "./components/history";
 import Wits from "./components/wits";
 import Sponsor from "./components/sponsor";
 import Faq from "./components/faq";
+import TeamCards from "./components/teamcards";
+import TeamFolders from "./components/teamfolders";
 // import CoChairs from "./components/cochairs";
 
 export default function Home() {
@@ -163,7 +164,8 @@ export default function Home() {
                         id="team"
                         className="scroll-mt-28 m-0 p-0"
                     >
-                        <SheHacksTeam />
+                        <TeamFolders />
+                        <TeamCards />
                     </section>
 
                     {/*connect stuff*/}
