@@ -8,17 +8,17 @@ const FAQ_ITEMS = [
   {
     question: "What challenges will I compete in?",
     answer:
-      "TBD — information about the challenges will be provided here.",
+      "The challenges will be announced a week ahead of the hackathon. You will receive an email when it opens up so you don't miss anything.",
   },
   {
     question: "If I'm a beginner, can I compete in the regular stream?",
     answer:
-      "TBD — information about beginner participation will be provided here.",
+      "Yes, you’re allowed to choose one of the two streams that you believe suits you and your skillset.",
   },
   {
     question: "Can I compete in both Hacker Olympics and regular stream?",
     answer:
-      "TBD — information about teams will be provided here.",
+      "Unfortunately, you will have to choose between the option of Hacker Olympics and Regular Stream. We want to ensure that you have enough time for your hack and that you complete your hack to the best of your ability.",
   },
 ];
 
