@@ -153,7 +153,7 @@ export default function Landing() {
             absolute
             z-20
             pointer-events-none
-            top-[13%]
+            top-[10%]
             right-[11.5%]
             w-[18%]
             h-auto
@@ -166,9 +166,9 @@ export default function Landing() {
           className="
             absolute
             z-40
-            top-[20%]
-            left-[-2%]
-            w-[104%]
+            top-[10%]
+            left-[-15%]
+            w-[150%]
           "
         >
           <Image
@@ -187,12 +187,12 @@ export default function Landing() {
               flex
               items-center
               justify-center
-              gap-[4%]
+              gap-[5%]
               font-bold
               text-black
               rotate-[-11deg]
               pointer-events-none
-              scale-[1.5]
+              scale-[1.8]
             "
           >
             {[

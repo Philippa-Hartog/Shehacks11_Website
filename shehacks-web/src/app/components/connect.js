@@ -33,30 +33,6 @@ export default function Connect() {
   }, [started, shown]);
   return (
     <div className="flex flex-col items-center w-full">
-    {/* CD with one star above + one star to the left */}
-    <div className="w-screen flex justify-end mt-16 mb-10">
-      <div className="relative w-[40vw] max-w-[450px] min-w-[120px]">
-        {/* LEFT STAR — bigger */}
-        <div className="absolute left-0 -translate-x-full top-1/2 -translate-y-1/2 w-14 sm:w-16 md:w-20 aspect-square">
-          <Image
-            src="/images/star2.png"
-            alt="star left"
-            fill
-            className="object-contain"
-          />
-        </div>
-
-        {/* CD IMAGE */}
-        <Image
-          src="/images/cd-wits.png"
-          alt="wits cd"
-          width={500}
-          height={500}
-          className="object-contain h-auto w-full"
-          priority
-        />
-      </div>
-    </div>
       {/* Sponsors section */}
       <section className="relative w-full max-w-[1200px] mx-auto">
         {/* Centered text block */}
