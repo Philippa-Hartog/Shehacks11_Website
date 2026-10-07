@@ -5,18 +5,17 @@
   margin: 0;
   padding: 0;
 
-  padding-top: 0;
-
   overflow: visible;
 }
 
-/*wood floor stuff*/
+
+/* wood floor stuff */
 
 .floor {
   position: relative;
 
   width: 100%;
-  height: 2100px;
+  height: 1800px;
 
   margin: 0;
   padding: 0;
@@ -28,7 +27,7 @@
 }
 
 
-/*tablet stuff*/
+/* tablet stuff */
 
 @media (max-width: 900px) {
   .floor {
@@ -36,15 +35,22 @@
   }
 }
 
-/*mobile stuff*/
+
+/* mobile stuff */
 
 @media (max-width: 600px) {
   .floor {
-    height: 1000px;
+    width: 100%;
+    height: 1450px;
+
+    background-size: cover;
+    background-position: center top;
+    background-repeat: repeat-y;
   }
 }
 
-/*coffee table stuff*/
+
+/* coffee table stuff */
 
 .coffeeTable {
   position: absolute;
@@ -53,8 +59,8 @@
   top: -500px;
 
   width: 15vw;
-  max-width: none;
   min-width: 1500px;
+  max-width: none;
 
   height: auto;
 
@@ -68,7 +74,8 @@
   pointer-events: none;
 }
 
-/*tablet table stuff*/
+
+/* tablet table stuff */
 
 @media (max-width: 900px) {
   .coffeeTable {
@@ -79,23 +86,10 @@
   }
 }
 
-/*mobile winners fixing stuff*/
+
+/* mobile table stuff */
 
 @media (max-width: 600px) {
-  .winnersSection {
-    padding-top: 0;
-    overflow: visible;
-  }
-
-  .floor {
-    width: 100%;
-    height: 1450px;
-
-    background-size: cover;
-    background-position: center top;
-    background-repeat: repeat-y;
-  }
-
   .coffeeTable {
     left: 50%;
     top: -130px;
@@ -108,24 +102,49 @@
   }
 }
 
-/*first newspaper stuff*/
 
-.newspaperOne {
+/* shared newspaper stuff */
+
+.newspaper {
   position: absolute;
 
-  left: 50%;
-  top: 220px;
+  width: 670px;
 
-  width: 520px;
+  padding: 0;
+  margin: 0;
 
-  transform:
-          translateX(-50%)
-          rotate(-4deg);
+  border: none;
+  outline: none;
+  background: transparent;
 
-  z-index: 30;
+  cursor: grab;
+
+  transform-origin: center center;
+
+  transition:
+          transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+          left 650ms cubic-bezier(0.22, 1, 0.36, 1),
+          top 650ms cubic-bezier(0.22, 1, 0.36, 1),
+          filter 500ms ease;
+
+  will-change: transform, left, top;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
-/*newspaper image stuff*/
+.newspaper:hover {
+  filter:
+          drop-shadow(
+                  0 16px 12px rgba(0, 0, 0, 0.28)
+          );
+}
+
+.newspaper:active {
+  cursor: grabbing;
+}
+
+
+/* newspaper image stuff */
 
 .newspaperImage {
   display: block;
@@ -142,7 +161,8 @@
           );
 }
 
-/*project image stuff*/
+
+/* project image stuff */
 
 .projectImage {
   position: absolute;
@@ -163,16 +183,16 @@
 }
 
 .projectImage img {
+  display: block;
+
   width: 100%;
   height: 100%;
-
-  display: block;
 
   object-fit: cover;
 }
 
 
-/*project text stuff*/
+/* project text stuff */
 
 .projectInfo {
   position: absolute;
@@ -201,7 +221,7 @@
 
   font-family: var(--font-newsreader), Georgia, serif;
 
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
 
   line-height: 1.05;
@@ -217,9 +237,138 @@
   line-height: 1.2;
 }
 
-/*tablet project stuff*/
+
+/* first newspaper stuff */
+
+.newspaperOne {
+  left: 50%;
+  top: 20px;
+
+  z-index: 33;
+
+  transform:
+          translateX(-50%)
+          rotate(-4deg);
+}
+
+.newspaperOneOpen {
+  left: 33%;
+  top: 35px;
+
+  z-index: 40;
+
+  transform:
+          translateX(-50%)
+          rotate(-15deg)
+          scale(1.03);
+
+  filter:
+          drop-shadow(
+                  0 20px 20px rgba(0, 0, 0, 0.32)
+          );
+}
+
+
+/* second newspaper stuff */
+
+.newspaperTwo {
+  left: 44%;
+  top: 80px;
+
+  z-index: 32;
+
+  transform:
+          translateX(-50%)
+          rotate(-10deg);
+}
+
+.newspaperTwoOpen {
+  left: 32%;
+  top: 165px;
+
+  z-index: 40;
+
+  transform:
+          translateX(-50%)
+          rotate(-19deg)
+          scale(1.03);
+
+  filter:
+          drop-shadow(
+                  0 20px 20px rgba(0, 0, 0, 0.32)
+          );
+}
+
+
+/* third newspaper stuff */
+
+.newspaperThree {
+  left: 56%;
+  top: 65px;
+
+  z-index: 31;
+
+  transform:
+          translateX(-50%)
+          rotate(9deg);
+}
+
+.newspaperThreeOpen {
+  left: 78%;
+  top: 160px;
+
+  z-index: 40;
+
+  transform:
+          translateX(-50%)
+          rotate(18deg)
+          scale(1.03);
+
+  filter:
+          drop-shadow(
+                  0 20px 20px rgba(0, 0, 0, 0.32)
+          );
+}
+
+
+/* fourth newspaper stuff */
+
+.newspaperFour {
+  left: 52%;
+  bottom: 1000px;
+
+  z-index: 30;
+
+  transform:
+          translateX(-50%)
+          rotate(4deg);
+}
+
+.newspaperFourOpen {
+  left: 69%;
+  bottom: 1000px;
+
+  z-index: 40;
+
+  transform:
+          translateX(-50%)
+          rotate(13deg)
+          scale(1.03);
+
+  filter:
+          drop-shadow(
+                  0 20px 20px rgba(0, 0, 0, 0.32)
+          );
+}
+
+
+/* tablet project stuff */
 
 @media (max-width: 900px) {
+  .newspaper {
+    width: 480px;
+  }
+
   .projectInfo h3 {
     font-size: 12px;
   }
@@ -230,44 +379,17 @@
 }
 
 
-/*mobile newspaper stuff*/
+/* mobile newspaper stuff */
 
 @media (max-width: 600px) {
-  .newspaperOne {
-    left: 50%;
-    top: 200px;
-
-    width: 230px;
-
-    transform:
-            translateX(-50%)
-            rotate(-4deg)
-            scale(1);
-
-    transform-origin: center center;
-
-    z-index: 30;
+  .newspaper {
+    width: 255px;
 
     transition:
-            transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-            filter 700ms ease;
-
-    will-change: transform;
-  }
-
-  .newspaperOpen {
-    transform:
-            translateX(-50%)
-            translateY(-25px)
-            rotate(0deg)
-            scale(1.42);
-
-    z-index: 50;
-
-    filter:
-            drop-shadow(
-                    0 24px 28px rgba(0, 0, 0, 0.38)
-            );
+            transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+            left 650ms cubic-bezier(0.22, 1, 0.36, 1),
+            top 650ms cubic-bezier(0.22, 1, 0.36, 1),
+            filter 500ms ease;
   }
 
   .projectInfo h3 {
@@ -277,212 +399,100 @@
   .projectInfo p {
     font-size: 5px;
   }
-}
-
-/*second newspaper stuff*/
-
-.newspaperTwo {
-  position: absolute;
-
-  left: 44%;
-  top: 180px;
-
-  width: 520px;
-
-  transform:
-          translateX(-50%)
-          rotate(-10deg);
-
-  z-index: 29;
-}
 
 
-/*mobile second newspaper stuff*/
+  /* first newspaper */
 
-@media (max-width: 600px) {
+  .newspaperOne {
+    left: 50%;
+    top: 200px;
+
+    transform:
+            translateX(-50%)
+            rotate(-4deg);
+  }
+
+  .newspaperOneOpen {
+    left: 29%;
+    top: 220px;
+
+    z-index: 50;
+
+    transform:
+            translateX(-50%)
+            rotate(-15deg)
+            scale(1.03);
+  }
+
+
+  /* second newspaper */
+
   .newspaperTwo {
     left: 36%;
     top: 180px;
 
-    width: 230px;
-
     transform:
             translateX(-50%)
-            rotate(-10deg)
-            scale(1);
-
-    transform-origin: center center;
-
-    z-index: 29;
-
-    transition:
-            transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-            filter 700ms ease;
-
-    will-change: transform;
+            rotate(-10deg);
   }
 
-  .newspaperTwo.newspaperOpen {
-    left: 50%;
-
-    transform:
-            translateX(-50%)
-            translateY(-25px)
-            rotate(0deg)
-            scale(1.42);
+  .newspaperTwoOpen {
+    left: 19%;
+    top: 170px;
 
     z-index: 50;
 
-    filter:
-            drop-shadow(
-                    0 24px 28px rgba(0, 0, 0, 0.38)
-            );
+    transform:
+            translateX(-50%)
+            rotate(-18deg)
+            scale(1.03);
   }
-}
-
-/*third newspaper stuff*/
-
-.newspaperThree {
-  position: absolute;
-
-  left: 56%;
-  top: 165px;
-
-  width: 520px;
-
-  transform:
-          translateX(-50%)
-          rotate(9deg);
-
-  z-index: 28;
-}
 
 
-/*mobile third newspaper stuff*/
+  /* third newspaper */
 
-@media (max-width: 600px) {
   .newspaperThree {
-    left: 54%;
+    left: 58%;
     top: 165px;
 
-    width: 230px;
-
     transform:
             translateX(-50%)
-            rotate(9deg)
-            scale(1);
-
-    transform-origin: center center;
-
-    z-index: 28;
-
-    transition:
-            transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-            filter 700ms ease;
-
-    will-change: transform;
+            rotate(9deg);
   }
 
-  .newspaperThree.newspaperOpen {
-    left: 50%;
-
-    transform:
-            translateX(-50%)
-            translateY(-25px)
-            rotate(0deg)
-            scale(1.42);
+  .newspaperThreeOpen {
+    left: 81%;
+    top: 165px;
 
     z-index: 50;
 
-    filter:
-            drop-shadow(
-                    0 24px 28px rgba(0, 0, 0, 0.38)
-            );
+    transform:
+            translateX(-50%)
+            rotate(18deg)
+            scale(1.03);
   }
-}
-
-/*fourth newspaper stuff*/
-
-.newspaperFour {
-  position: absolute;
-
-  left: 52%;
-  top: 255px;
-
-  width: 520px;
-
-  transform:
-          translateX(-50%)
-          rotate(4deg);
-
-  z-index: 27;
-}
 
 
-/*mobile fourth newspaper stuff*/
+  /* fourth newspaper */
 
-@media (max-width: 600px) {
   .newspaperFour {
-    left: 52%;
-    top: 215px;
-
-    width: 230px;
+    left: 53%;
+    top: 225px;
 
     transform:
             translateX(-50%)
-            rotate(4deg)
-            scale(1);
-
-    transform-origin: center center;
-
-    z-index: 27;
-
-    transition:
-            transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-            filter 700ms ease;
-
-    will-change: transform;
+            rotate(4deg);
   }
 
-  .newspaperFour.newspaperOpen {
-    left: 50%;
-
-    transform:
-            translateX(-50%)
-            translateY(-25px)
-            rotate(0deg)
-            scale(1.42);
+  .newspaperFourOpen {
+    left: 72%;
+    top: 290px;
 
     z-index: 50;
 
-    filter:
-            drop-shadow(
-                    0 24px 28px rgba(0, 0, 0, 0.38)
-            );
-  }
-}
-
-/* desktop only */
-@media (min-width: 901px) {
-  .newspaper {
-    animation: newspaperFloat 4s ease-in-out infinite;
-  }
-
-  @keyframes newspaperFloat {
-    0%,
-    100% {
-      transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-      transform: translateY(-15px) rotate(1deg);
-    }
-  }
-}
-
-/* tablet + mobile */
-@media (max-width: 900px) {
-  .newspaper {
-    animation: none;
+    transform:
+            translateX(-50%)
+            rotate(13deg)
+            scale(1.03);
   }
 }

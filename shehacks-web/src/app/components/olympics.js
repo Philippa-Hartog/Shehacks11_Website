@@ -30,7 +30,7 @@ export default function Olympics() {
           />
 
           {/* HACKER OLYMPICS TEXT */}
-          <div className="absolute top-[3.5cqw] left-1/2 -translate-x-1/2 w-[91%] flex flex-col items-center text-black">
+          <div className="absolute top-[7.5cqw] left-1/2 -translate-x-1/2 w-[91%] flex flex-col items-center text-black">
             <h2
               style={{ fontFamily: "var(--font-koulen)" }}
               className="text-[length:7.5cqw] leading-none uppercase text-neutral-900">
