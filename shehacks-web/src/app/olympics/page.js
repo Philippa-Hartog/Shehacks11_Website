@@ -77,8 +77,8 @@ export default function HackerOlympicsPage() {
       <HOWinners />
 
       <ScaledCanvas height={CANVAS_B_HEIGHT}>
-        <HOFaq />
-        <HOAbout />
+        <section id="faq"><HOFaq /></section>
+        <section id="about"><HOAbout /></section>
       </ScaledCanvas>
     </div>
   );

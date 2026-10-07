@@ -4,7 +4,6 @@ import Image from "next/image";
 
 
 const NAV_LINKS = [
-  { label: "HOME", href: "/home" },
   { label: "ABOUT", href: "#about" },
   { label: "GALLERY", href: "/gallery" },
   { label: "FAQ", href: "#faq" },
@@ -134,7 +133,7 @@ export default function Navbar() {
                   </a>
 
                   <a 
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/wits.uwo/"
                     target="_blank" 
                     rel="noreferrer" 
                     className="hover:opacity-70 transition-opacity"

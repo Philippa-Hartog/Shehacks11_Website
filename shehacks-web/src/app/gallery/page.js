@@ -1,4 +1,4 @@
-import Navbar from "../components/navbar";
+import Navbar from "./navbar";
 import Connect from "@/app/components/connect";
 import SheHacksTeam from "../components/shehacksteam";
 import GalleryPage from "@/app/components/GalleryPage";
@@ -10,7 +10,7 @@ return ( <div className="font-sans min-h-screen text-white bg-[url('/images/gall
 
   <main className="pb-20">
     <h2
-    className="w-full text-white text-xl sm:text-2xl md:text-3xl font-bold text-left uppercase font-koulen px-8 sm:px-20 pt-8"
+    className="w-full text-white text-xl sm:text-2xl md:text-3xl font-bold text-left uppercase font-koulen px-32 pt-24"
     >
       Welcome to the SheHacks+ Gallery
     </h2>
