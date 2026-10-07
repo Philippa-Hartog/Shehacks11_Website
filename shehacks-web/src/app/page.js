@@ -15,12 +15,13 @@ export default function Home() {
             <Navbar />
 
             <main className="w-full pb-20">
+                <section id="home">
 
                 {/*landing stuff*/}
                 <div className="px-4 sm:px-20">
                     <Landing />
                 </div>
-
+                </section>
                 {/*sponsor stuff*/}
                 <section
                     id="sponsor"
