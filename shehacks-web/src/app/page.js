@@ -165,7 +165,6 @@ export default function Home() {
                         className="scroll-mt-28 m-0 p-0"
                     >
                         <TeamFolders />
-                        <TeamCards />
                     </section>
 
                     {/*connect stuff*/}

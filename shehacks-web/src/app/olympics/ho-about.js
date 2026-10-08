@@ -1,3 +1,5 @@
+import TeamCards from '../components/teamcards.js'
+
 const CANVAS_WIDTH = 1440;
 function TeamCard({ team, role, name, top, left, right }) {
   return (
@@ -99,7 +101,7 @@ export default function HOAbout() {
         style={{ width: 1451, height: 238, position: 'absolute', top: 1068, left: 0 }}
       />
 
-      <TeamCard
+      {/* <TeamCard
         team="/images/hacker-olympics/teamphotos/ella pic.png"
         role="Co-Chair Shehacks"
         name="Ella Sajor"
@@ -147,8 +149,9 @@ export default function HOAbout() {
         name="Chloe Chong"
         top={1790}
         right={75}
-      />
-
+      /> */}
+      <section style={{position: 'absolute',
+          top: 1300,        left: 200,}}><TeamCards/></section>
       <h1 
         className="font-koulen"
         style={{

@@ -2,13 +2,13 @@
 import { useState } from "react";
 
 const PEOPLE = [
-  { name: "Raisa Kayastha",    role: "Co-Chair SheHacks", photo: "/images/team/raisa.jpeg",    linkedin: "https://www.linkedin.com/in/raisa-kayastha77/",        tabX: 26  },
-  { name: "Gurnoor Jande",     role: "Co-Chair SheHacks", photo: "/images/team/gurnoor.jpeg",  linkedin: "https://www.linkedin.com/in/gurnoor-jande-39a9321b1/", tabX: 213 },
-  { name: "Ella Sajor",        role: "Co-Chair SheHacks", photo: "/images/team/ella.jpeg",     linkedin: "https://www.linkedin.com/in/ella-sajor/",             tabX: 365 },
-  { name: "Eshanya Rukhaiyar", role: "Director SheHacks", photo: "/images/team/eshanya.jpeg",  linkedin: "https://www.linkedin.com/in/eshanya-rukhaiyar/",      tabX: 537 },
-  { name: "Danica Keeler",     role: "Director SheHacks", photo: "/images/team/danica.jpeg",   linkedin: "https://www.linkedin.com/in/danicakeeler",            tabX: 702 },
-  { name: "Satwika Pujari",    role: "Director SheHacks", photo: "/images/team/satwika.jpeg",  linkedin: "https://www.linkedin.com/in/satwikapujari/",          tabX: 26  },
-  { name: "Chloe Chong",       role: "Director SheHacks", photo: "/images/team/chloe.jpeg",    linkedin: "https://www.linkedin.com/in/cchloechong",             tabX: 229 },
+  { name: "Raisa Kayastha",    role: "Co-Chair SheHacks", photo: "/images/hacker-olympics/teamphotos/raisa pic.png",    linkedin: "https://www.linkedin.com/in/raisa-kayastha77/",        tabX: 26  },
+  { name: "Gurnoor Jande",     role: "Co-Chair SheHacks", photo: "/images/hacker-olympics/teamphotos/gurnoor pic.png",  linkedin: "https://www.linkedin.com/in/gurnoor-jande-39a9321b1/", tabX: 213 },
+  { name: "Ella Sajor",        role: "Co-Chair SheHacks", photo: "/images/hacker-olympics/teamphotos/ella pic.png",     linkedin: "https://www.linkedin.com/in/ella-sajor/",             tabX: 365 },
+  { name: "Eshanya Rukhaiyar", role: "Director SheHacks", photo: "/images/hacker-olympics/teamphotos/image 323.png",  linkedin: "https://www.linkedin.com/in/eshanya-rukhaiyar/",      tabX: 537 },
+  { name: "Danica Keeler",     role: "Director SheHacks", photo: "/images/hacker-olympics/teamphotos/headshot1 1.png",   linkedin: "https://www.linkedin.com/in/danicakeeler",            tabX: 702 },
+  { name: "Satwika Pujari",    role: "Director SheHacks", photo: "/images/hacker-olympics/teamphotos/Satwika pic.png",  linkedin: "https://www.linkedin.com/in/satwikapujari/",          tabX: 26  },
+  { name: "Chloe Chong",       role: "Director SheHacks", photo: "/images/hacker-olympics/teamphotos/image 322.png",    linkedin: "https://www.linkedin.com/in/cchloechong",             tabX: 229 },
 ];
 
 const STEP = 166;
