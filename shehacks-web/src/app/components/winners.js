@@ -16,7 +16,7 @@ export default function Winners() {
         >
             <div className={styles.floor}>
 
-                {/*coffee table stuff*/}
+                {/* coffee table stuff */}
                 <img
                     src="/images/winners/coffee-table.png"
                     alt=""
@@ -24,12 +24,13 @@ export default function Winners() {
                     className={styles.coffeeTable}
                 />
 
-                {/*first newspaper stuff*/}
+                {/* first newspaper stuff */}
                 <button
                     type="button"
                     className={`
+                        ${styles.newspaper}
                         ${styles.newspaperOne}
-                        ${newspaperOpen ? styles.newspaperOpen : ""}
+                        ${newspaperOpen ? styles.newspaperOneOpen : ""}
                     `}
                     onClick={() =>
                         setNewspaperOpen((current) => !current)
@@ -43,7 +44,6 @@ export default function Winners() {
                         className={styles.newspaperImage}
                     />
 
-                    {/*project image stuff*/}
                     <div className={styles.projectImage}>
                         <img
                             src="/images/hacker-olympics/winners/placeholder.jpg"
@@ -51,7 +51,6 @@ export default function Winners() {
                         />
                     </div>
 
-                    {/*project text stuff*/}
                     <div className={styles.projectInfo}>
                         <h3>Project Title Here</h3>
 
@@ -62,13 +61,14 @@ export default function Winners() {
                     </div>
                 </button>
 
-                {/*second newspaper stuff*/}
+                {/* second newspaper stuff */}
                 <button
                     type="button"
                     className={`
-        ${styles.newspaperTwo}
-        ${newspaperTwoOpen ? styles.newspaperOpen : ""}
-    `}
+                        ${styles.newspaper}
+                        ${styles.newspaperTwo}
+                        ${newspaperTwoOpen ? styles.newspaperTwoOpen : ""}
+                    `}
                     onClick={() =>
                         setNewspaperTwoOpen((current) => !current)
                     }
@@ -81,7 +81,6 @@ export default function Winners() {
                         className={styles.newspaperImage}
                     />
 
-                    {/*project image stuff*/}
                     <div className={styles.projectImage}>
                         <img
                             src="/images/hacker-olympics/winners/placeholder.jpg"
@@ -89,7 +88,6 @@ export default function Winners() {
                         />
                     </div>
 
-                    {/*project text stuff*/}
                     <div className={styles.projectInfo}>
                         <h3>Project Title Two</h3>
 
@@ -100,13 +98,14 @@ export default function Winners() {
                     </div>
                 </button>
 
-                {/*third newspaper stuff*/}
+                {/* third newspaper stuff */}
                 <button
                     type="button"
                     className={`
-        ${styles.newspaperThree}
-        ${newspaperThreeOpen ? styles.newspaperOpen : ""}
-    `}
+                        ${styles.newspaper}
+                        ${styles.newspaperThree}
+                        ${newspaperThreeOpen ? styles.newspaperThreeOpen : ""}
+                    `}
                     onClick={() =>
                         setNewspaperThreeOpen((current) => !current)
                     }
@@ -119,7 +118,6 @@ export default function Winners() {
                         className={styles.newspaperImage}
                     />
 
-                    {/*project image stuff*/}
                     <div className={styles.projectImage}>
                         <img
                             src="/images/hacker-olympics/winners/placeholder.jpg"
@@ -127,7 +125,6 @@ export default function Winners() {
                         />
                     </div>
 
-                    {/*project text stuff*/}
                     <div className={styles.projectInfo}>
                         <h3>Project Title Three</h3>
 
@@ -138,13 +135,14 @@ export default function Winners() {
                     </div>
                 </button>
 
-                {/*fourth newspaper stuff*/}
+                {/* fourth newspaper stuff */}
                 <button
                     type="button"
                     className={`
-        ${styles.newspaperFour}
-        ${newspaperFourOpen ? styles.newspaperOpen : ""}
-    `}
+                        ${styles.newspaper}
+                        ${styles.newspaperFour}
+                        ${newspaperFourOpen ? styles.newspaperFourOpen : ""}
+                    `}
                     onClick={() =>
                         setNewspaperFourOpen((current) => !current)
                     }
@@ -157,7 +155,6 @@ export default function Winners() {
                         className={styles.newspaperImage}
                     />
 
-                    {/*project image stuff*/}
                     <div className={styles.projectImage}>
                         <img
                             src="/images/hacker-olympics/winners/placeholder.jpg"
@@ -165,7 +162,6 @@ export default function Winners() {
                         />
                     </div>
 
-                    {/*project text stuff*/}
                     <div className={styles.projectInfo}>
                         <h3>Project Title Four</h3>
 

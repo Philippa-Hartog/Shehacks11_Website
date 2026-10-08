@@ -1,186 +1,602 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
-/* ---------------------- Responsive scaling ---------------------- */
-function useResponsiveScale() {
-  const [s, setS] = useState(1);
-  useEffect(() => {
-    const handleResize = () => {
-      const vw = window.innerWidth;
-      // Designed for ~1200px base — scale down but not below 0.18x
-      const scale = Math.max(0.18, Math.min(1, vw / 1200));
-      setS(scale);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  return s;
-}
-
-/* ---------------------- Frame helpers ---------------------- */
-const FRAME_SRC = {
-  cochair: "/images/team/cochairshehacksframe.png",
-  director: "/images/team/directorshehacksframe.png",
-};
-function pickFrameSrc(role = "") {
-  const r = role.toLowerCase();
-  if (r.includes("co-chair") || r.includes("cochair")) return FRAME_SRC.cochair;
-  return FRAME_SRC.director;
-}
-
-const HEADSHOT_SCALE = 0.34;
-function FrameCard({ person, scale = 1 }) {
-  const frameSrc = pickFrameSrc(person.role);
-  const dims = { w: 520, h: 430 };
-  return (
-    <div
-      className="relative select-none"
-      style={{
-        width: dims.w,
-        height: dims.h,
-        transform: `scale(${scale})`,
-        transformOrigin: "center",
-        transition: "transform 0.5s ease",
-      }}
-    >
-      <Image src={frameSrc} alt={person.name} width={dims.w} height={dims.h} />
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
-        <div
-          className="relative rounded-md overflow-hidden mb-3"
-          style={{ width: `${HEADSHOT_SCALE * 100}%`, aspectRatio: "1/1" }}
-        >
-          <Image src={person.photo} alt={person.name} fill className="object-cover" />
-        </div>
-        <p className="text-base sm:text-lg font-semibold tracking-tight text-white/95">
-          {person.name}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-/* ---------------------- Carousel ---------------------- */
 export default function SheHacksTeam() {
-  const [isPaused, setIsPaused] = useState(false);
-  const s = useResponsiveScale(); // ✅ scale whole carousel
+    const [openFolder, setOpenFolder] = useState(null);
 
-  const people = useMemo(
-    () => [
-      { name: "Vaanya Puri", role: "SheHacks+ Co-Chair", photo: "/images/team/vaanya.jpeg",linkedin:'https://www.linkedin.com/in/vaanyap/' },
-      { name: "Freda Zhao", role: "SheHacks+ Co-Chair", photo: "/images/team/freda.jpeg", linkedin:'https://www.linkedin.com/in/freda-z-984442210/' },
-      { name: "Emily Yu", role: "SheHacks+ Director", photo: "/images/team/emily.jpeg", linkedin:'https://www.linkedin.com/in/emily-nz-yu/' },
-      { name: "Lillian Wei", role: "SheHacks+ Director", photo: "/images/team/lillian.jpeg", linkedin:'https://www.linkedin.com/in/lillianhwei/' },
-      { name: "Ella Sajor", role: "SheHacks+ Director", photo: "/images/team/ella.jpeg", linkedin:'https://www.linkedin.com/in/ella-sajor/' },
-      { name: "Raisa Kayastha", role: "SheHacks+ Director", photo: "/images/team/raisa.jpeg", linkedin: 'https://www.linkedin.com/in/raisa-kayastha77/' },
-    ],
-    []
-  );
-
-  const [index, setIndex] = useState(0);
-  const count = people.length;
-  const idx = (i) => (i + count) % count;
-
-  const goLeft = () => setIndex((i) => idx(i + 1));
-  const goRight = () => setIndex((i) => idx(i - 1));
-
-  useEffect(() => {
-  if (isPaused) return; // don't rotate if paused
-  const interval = setInterval(() => {
-    goLeft();
-  }, 2800);
-  return () => clearInterval(interval);
-}, [isPaused]);
-
-  /* ✅ ORIGINAL VALUES: preserved exactly */
-  const OFFSET_X = 380;
-  const OFFSET_Y = 150;
-  const SCALE_CENTER = 1;
-  const SCALE_SIDE = 0.55;
-  const DURATION = 500;
-
-  return (
-    <section className="py-12">
-      <div className="relative flex justify-center items-center">
-        {/* ✅ SCALE THE WHOLE CAROUSEL (this is the key fix) */}
-        <div
-          className="relative"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          style={{
-            width: "1000px",
-            height: "550px",
-            overflow: "visible",
-            transform: `scale(${s})`,
-            transformOrigin: "center top",
-            transition: "transform 0.35s ease",
-          }}
+    return (
+        <section
+            className="
+                relative
+                w-full
+                min-h-[2200px]
+                m-0
+                p-0
+                overflow-hidden
+            "
+            style={{
+                backgroundImage: "url('/images/team/bottom-floor.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center top",
+                backgroundRepeat: "no-repeat",
+            }}
         >
-          {/* LEFT */}
-          <div
-            className="absolute top-1/2 left-1/2 transition-transform ease-[cubic-bezier(.22,.61,.36,1)] hover:scale-110"
-            style={{
-              transform: `translate(calc(-50% - ${OFFSET_X}px), calc(-50% + ${OFFSET_Y}px)) scale(${SCALE_SIDE})`,
-              transitionDuration: `${DURATION}ms`,
-            }}
-          >
-            <div className="float">
-              <a href={people[idx(index - 1)].linkedin} target="_blank" rel="noopener noreferrer">
-                <FrameCard person={people[idx(index - 1)]} />
-              </a>
+
+            {/*folder stack stuff*/}
+            <div
+                className="
+                    absolute
+                    top-[8%]
+                    left-1/2
+                    -translate-x-1/2
+                    w-[58%]
+                    max-w-[800px]
+                "
+            >
+
+                {/*raisa stuff*/}
+                <div className="relative w-full pointer-events-none">
+
+                    {/*raisa card stuff*/}
+                    <div
+                        className={`
+                            absolute
+                            left-[27%]
+                            top-[82%]
+                            -translate-x-1/2
+                            w-[31%]
+                            z-[65]
+                            transition-all
+                            duration-500
+                            ease-out
+                            ${
+                            openFolder === "raisa"
+                                ? "translate-y-[50%] opacity-100"
+                                : "translate-y-[-90%] opacity-100"
+                        }
+                        `}
+                    >
+                        <Image
+                            src="/images/team/card-raisa.png"
+                            alt="Raisa Kayastha information"
+                            width={445}
+                            height={811}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </div>
+
+                    {/*raisa folder stuff*/}
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setOpenFolder(
+                                openFolder === "raisa" ? null : "raisa"
+                            )
+                        }
+                        className="
+                            relative
+                            z-[70]
+                            block
+                            w-full
+                            border-0
+                            bg-transparent
+                            p-0
+                            cursor-pointer
+                            pointer-events-auto
+                            transition
+                            duration-200
+                            hover:drop-shadow-[0_10px_10px_rgba(0,0,0,0.22)]
+                        "
+                    >
+                        <Image
+                            src="/images/team/raisa-folder.png"
+                            alt="Raisa Kayastha folder"
+                            width={1198}
+                            height={917}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </button>
+
+                </div>
+
+                {/*gurnoor stuff*/}
+                <div
+                    className="relative w-full pointer-events-none"
+                    style={{ marginTop: "-61%" }}
+                >
+
+                    {/*gurnoor card stuff*/}
+                    <div
+                        className={`
+                            absolute
+                            left-[43%]
+                            top-[82%]
+                            -translate-x-1/2
+                            w-[31%]
+                            z-[55]
+                            transition-all
+                            duration-500
+                            ease-out
+                            ${
+                            openFolder === "gurnoor"
+                                ? "translate-y-[50%] opacity-100"
+                                : "translate-y-[-90%] opacity-100"
+                        }
+                        `}
+                    >
+                        <Image
+                            src="/images/team/card-gurnoor.png"
+                            alt="Gurnoor Jande information"
+                            width={445}
+                            height={811}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </div>
+
+                    {/*gurnoor folder stuff*/}
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setOpenFolder(
+                                openFolder === "gurnoor" ? null : "gurnoor"
+                            )
+                        }
+                        className="
+                            relative
+                            z-[60]
+                            block
+                            w-full
+                            border-0
+                            bg-transparent
+                            p-0
+                            cursor-pointer
+                            pointer-events-auto
+                            transition
+                            duration-200
+                            hover:drop-shadow-[0_10px_10px_rgba(0,0,0,0.22)]
+                        "
+                    >
+                        <Image
+                            src="/images/team/gurnoor-folder.png"
+                            alt="Gurnoor Jande folder"
+                            width={1198}
+                            height={917}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </button>
+
+                </div>
+
+                {/*ella stuff*/}
+                <div
+                    className="relative w-full pointer-events-none"
+                    style={{ marginTop: "-61%" }}
+                >
+
+                    {/*ella card stuff*/}
+                    <div
+                        className={`
+                            absolute
+                            left-[51%]
+                            top-[82%]
+                            -translate-x-1/2
+                            w-[31%]
+                            z-[45]
+                            transition-all
+                            duration-500
+                            ease-out
+                            ${
+                            openFolder === "ella"
+                                ? "translate-y-[50%] opacity-100"
+                                : "translate-y-[-90%] opacity-100"
+                        }
+                        `}
+                    >
+                        <Image
+                            src="/images/team/card-ella.png"
+                            alt="Ella Sajor information"
+                            width={445}
+                            height={811}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </div>
+
+                    {/*ella folder stuff*/}
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setOpenFolder(
+                                openFolder === "ella" ? null : "ella"
+                            )
+                        }
+                        className="
+                            relative
+                            z-[50]
+                            block
+                            w-full
+                            border-0
+                            bg-transparent
+                            p-0
+                            cursor-pointer
+                            pointer-events-auto
+                            transition
+                            duration-200
+                            hover:drop-shadow-[0_10px_10px_rgba(0,0,0,0.22)]
+                        "
+                    >
+                        <Image
+                            src="/images/team/ella-folder.png"
+                            alt="Ella Sajor folder"
+                            width={1198}
+                            height={917}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </button>
+
+                </div>
+
+                {/*eshanya stuff*/}
+                <div
+                    className="relative w-full pointer-events-none"
+                    style={{ marginTop: "-61%" }}
+                >
+
+                    {/*eshanya card stuff*/}
+                    <div
+                        className={`
+                            absolute
+                            left-[65%]
+                            top-[82%]
+                            -translate-x-1/2
+                            w-[31%]
+                            z-[35]
+                            transition-all
+                            duration-500
+                            ease-out
+                            ${
+                            openFolder === "eshanya"
+                                ? "translate-y-[50%] opacity-100"
+                                : "translate-y-[-90%] opacity-100"
+                        }
+                        `}
+                    >
+                        <Image
+                            src="/images/team/card-eshanya.png"
+                            alt="Eshanya Rukhaiyar information"
+                            width={445}
+                            height={811}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </div>
+
+                    {/*eshanya folder stuff*/}
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setOpenFolder(
+                                openFolder === "eshanya" ? null : "eshanya"
+                            )
+                        }
+                        className="
+                            relative
+                            z-[40]
+                            block
+                            w-full
+                            border-0
+                            bg-transparent
+                            p-0
+                            cursor-pointer
+                            pointer-events-auto
+                            transition
+                            duration-200
+                            hover:drop-shadow-[0_10px_10px_rgba(0,0,0,0.22)]
+                        "
+                    >
+                        <Image
+                            src="/images/team/eshanya-folder.png"
+                            alt="Eshanya Rukhaiyar folder"
+                            width={1198}
+                            height={917}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </button>
+
+                </div>
+
+                {/*danica stuff*/}
+                <div
+                    className="relative w-full pointer-events-none"
+                    style={{ marginTop: "-61%" }}
+                >
+
+                    {/*danica card stuff*/}
+                    <div
+                        className={`
+                            absolute
+                            left-[67%]
+                            top-[82%]
+                            -translate-x-1/2
+                            w-[31%]
+                            z-[25]
+                            transition-all
+                            duration-500
+                            ease-out
+                            ${
+                            openFolder === "danica"
+                                ? "translate-y-[50%] opacity-100"
+                                : "translate-y-[-90%] opacity-100"
+                        }
+                        `}
+                    >
+                        <Image
+                            src="/images/team/card-danica.png"
+                            alt="Danica Keeler information"
+                            width={445}
+                            height={811}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </div>
+
+                    {/*danica folder stuff*/}
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setOpenFolder(
+                                openFolder === "danica" ? null : "danica"
+                            )
+                        }
+                        className="
+                            relative
+                            z-[30]
+                            block
+                            w-full
+                            border-0
+                            bg-transparent
+                            p-0
+                            cursor-pointer
+                            pointer-events-auto
+                            transition
+                            duration-200
+                            hover:drop-shadow-[0_10px_10px_rgba(0,0,0,0.22)]
+                        "
+                    >
+                        <Image
+                            src="/images/team/danica-folder.png"
+                            alt="Danica Keeler folder"
+                            width={1198}
+                            height={917}
+                            className="
+                                block
+                                w-[120%]
+                                max-w-none
+                                -ml-[10%]
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </button>
+
+                </div>
+
+                {/*satwika stuff*/}
+                <div
+                    className="relative w-full pointer-events-none"
+                    style={{ marginTop: "-61%" }}
+                >
+
+                    {/*satwika card stuff*/}
+                    <div
+                        className={`
+                            absolute
+                            left-[27%]
+                            top-[82%]
+                            -translate-x-1/2
+                            w-[31%]
+                            z-[15]
+                            transition-all
+                            duration-500
+                            ease-out
+                            ${
+                            openFolder === "satwika"
+                                ? "translate-y-[50%] opacity-100"
+                                : "translate-y-[-90%] opacity-100"
+                        }
+                        `}
+                    >
+                        <Image
+                            src="/images/team/card-satwika.png"
+                            alt="Satwika Pujari information"
+                            width={445}
+                            height={811}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </div>
+
+                    {/*satwika folder stuff*/}
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setOpenFolder(
+                                openFolder === "satwika" ? null : "satwika"
+                            )
+                        }
+                        className="
+                            relative
+                            z-[20]
+                            block
+                            w-full
+                            border-0
+                            bg-transparent
+                            p-0
+                            cursor-pointer
+                            pointer-events-auto
+                            transition
+                            duration-200
+                            hover:drop-shadow-[0_10px_10px_rgba(0,0,0,0.22)]
+                        "
+                    >
+                        <Image
+                            src="/images/team/satwika-folder.png"
+                            alt="Satwika Pujari folder"
+                            width={1198}
+                            height={917}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </button>
+
+                </div>
+
+                {/*chloe stuff*/}
+                <div
+                    className="relative w-full pointer-events-none"
+                    style={{ marginTop: "-61%" }}
+                >
+
+                    {/*chloe card stuff*/}
+                    <div
+                        className={`
+                            absolute
+                            left-[37%]
+                            top-[82%]
+                            -translate-x-1/2
+                            w-[31%]
+                            z-[5]
+                            transition-all
+                            duration-500
+                            ease-out
+                            ${
+                            openFolder === "chloe"
+                                ? "translate-y-[50%] opacity-100"
+                                : "translate-y-[-90%] opacity-100"
+                        }
+                        `}
+                    >
+                        <Image
+                            src="/images/team/card-chloe.png"
+                            alt="Chloe Chong information"
+                            width={445}
+                            height={811}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </div>
+
+                    {/*chloe folder stuff*/}
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setOpenFolder(
+                                openFolder === "chloe" ? null : "chloe"
+                            )
+                        }
+                        className="
+                            relative
+                            z-[10]
+                            block
+                            w-full
+                            border-0
+                            bg-transparent
+                            p-0
+                            cursor-pointer
+                            pointer-events-auto
+                            transition
+                            duration-200
+                            hover:drop-shadow-[0_10px_10px_rgba(0,0,0,0.22)]
+                        "
+                    >
+                        <Image
+                            src="/images/team/chloe-folder.png"
+                            alt="Chloe Chong folder"
+                            width={1198}
+                            height={917}
+                            className="
+                                block
+                                w-full
+                                h-auto
+                                select-none
+                                pointer-events-none
+                            "
+                        />
+                    </button>
+
+                </div>
+
             </div>
-          </div>
 
-          {/* CENTER */}
-          <div
-            className="absolute top-1/2 left-1/2 transition-transform ease-[cubic-bezier(.22,.61,.36,1)] hover:scale-110"
-            style={{
-              transform: `translate(-50%, -50%) scale(${SCALE_CENTER})`,
-              transitionDuration: `${DURATION}ms`,
-            }}
-          >
-            <div className="float">
-              <a href={people[idx(index)].linkedin} target="_blank" rel="noopener noreferrer">
-                <FrameCard person={people[idx(index)]} />
-              </a>            
-            </div>
-          </div>
-
-          {/* RIGHT */}
-          <div
-            className="absolute top-1/2 left-1/2 transition-transform ease-[cubic-bezier(.22,.61,.36,1)] hover:scale-110"
-            style={{
-              transform: `translate(calc(-50% + ${OFFSET_X}px), calc(-50% + ${OFFSET_Y}px)) scale(${SCALE_SIDE})`,
-              transitionDuration: `${DURATION}ms`,
-            }}
-          >
-            <div className="float">
-              <a href={people[idx(index + 1)].linkedin} target="_blank" rel="noopener noreferrer">
-                <FrameCard person={people[idx(index + 1)]} />
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      {/* --- Float animation --- */}
-      <style jsx>{`
-        .float {
-          display: inline-block; /* preserve layout */
-          animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-
-        .float:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-    </section>
-  );
+        </section>
+    );
 }
