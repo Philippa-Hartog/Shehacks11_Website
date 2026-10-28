@@ -33,7 +33,7 @@ function FAQItem({ question, answer, index, open, setOpen }) {
         left: 0,
         width: "100%",
         height: 150,
-        zIndex: isOpen ? 100 : index,
+        zIndex: index,
       }}
     >
       {/* Answer folder */}
