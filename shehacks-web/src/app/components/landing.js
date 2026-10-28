@@ -361,23 +361,34 @@ export default function Landing() {
           "
         />
 
-        {/* Apply now polaroid */}
-        <Image
-          src="/images/landing/apply now polariod.png"
-          alt=""
-          width={436}
-          height={492}
+         {/* Apply now polaroid */}
+        <a
+          href="https://tally.so/r/rjxvML"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Apply now to SheHacks 11"
           className="
             absolute
             z-20
-            pointer-events-none
             top-[33.5%]
             right-[3%]
             w-[36%]
-            h-auto
             max-w-[500px]
+            block
+            cursor-pointer
+            transition-transform duration-300 ease-out
+            hover:scale-105
+            active:scale-100
           "
-        />
+        >
+          <Image
+            src="/images/landing/apply now polariod.png"
+            alt=""
+            width={436}
+            height={492}
+            className="w-full h-auto pointer-events-none"
+          />
+        </a>
 
         {/* Ace card */}
         <Image
