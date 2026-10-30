@@ -661,7 +661,7 @@ export default function Landing() {
             pointer-events-none
             top-[106%]
             right-[25%]
-            w-[55%]
+            w-[17.64%]
             h-auto
             max-w-[220px]
           "
@@ -679,7 +679,7 @@ export default function Landing() {
             pointer-events-none
             top-[98%]
             right-[10%]
-            w-[55%]
+            w-[24.22%]
             h-auto
             max-w-[302px]
           "
@@ -751,7 +751,7 @@ export default function Landing() {
             pointer-events-none
             top-[117%]
             right-[54%]
-            w-[55%]
+            w-[43.62%]
             h-auto
             max-w-[544px]
           "
@@ -769,7 +769,7 @@ export default function Landing() {
             pointer-events-none
             top-[116.7%]
             right-[54%]
-            w-[55%]
+            w-[19.09%]
             h-auto
             max-w-[238px]
           "
@@ -787,7 +787,7 @@ export default function Landing() {
             pointer-events-none
             top-[123%]
             right-[59.7%]
-            w-[55%]
+            w-[22.69%]
             h-auto
             max-w-[283px]
           "
@@ -805,7 +805,7 @@ export default function Landing() {
             pointer-events-none
             top-[123.22%]
             right-[35%]
-            w-[55%]
+            w-[24.06%]
             h-auto
             max-w-[300px]
           "
@@ -823,7 +823,7 @@ export default function Landing() {
             pointer-events-none
             top-[123%]
             right-[10%]
-            w-[55%]
+            w-[24.06%]
             h-auto
             max-w-[300px]
           "
@@ -841,7 +841,7 @@ export default function Landing() {
             pointer-events-none
             top-[136%]
             right-[47%]
-            w-[55%]
+            w-[24.06%]
             h-auto
             max-w-[300px]
           "
@@ -859,7 +859,7 @@ export default function Landing() {
             pointer-events-none
             top-[136.2%]
             right-[22%]
-            w-[40%]
+            w-[23.26%]
             h-auto
             max-w-[290px]
           "
@@ -877,7 +877,7 @@ export default function Landing() {
             pointer-events-none
             top-[122.7%]
             right-[22%]
-            w-[80%]
+            w-[55.41%]
             h-auto
             max-w-[691px]
           "
