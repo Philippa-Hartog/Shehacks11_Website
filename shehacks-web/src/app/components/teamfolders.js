@@ -26,6 +26,7 @@ export default function TeamFolders() {
           return (
             <div
               className="folder"
+              data-open={open}
               key={p.name}
               style={{ top: i * STEP, zIndex: PEOPLE.length - i }}
             >
@@ -147,6 +148,19 @@ export default function TeamFolders() {
         }
         .cname { top: 666px; font-size: 36px; font-weight: 700; color: #313131; }
         .crole { top: 709px; font-size: 36px; font-weight: 600; color: #5E5E5E; }
+        @media (max-width: 1279px) {
+          .wrap { display: block; height: auto; padding: 24px 16px; }
+          .stage { width: 100%; height: auto; transform: none; }
+          .folder { position: relative; top: auto !important; width: 100%; height: auto; display: flex; flex-direction: column; margin-bottom: 12px; padding: 12px 16px 28px; }
+          .back, .paperart { display: none; }
+          .sheet { top: -6px; left: 2%; width: 96%; height: 100%; z-index: 0; pointer-events: none; }
+          .front { inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+          .tab { position: relative; top: auto; left: auto !important; order: -1; width: 100% !important; height: auto; min-height: 48px; font-size: 16px; }
+          .paper { display: none; position: relative; top: auto; left: auto !important; width: 100%; height: auto; padding: 12px; background: #f4efe2; box-shadow: 0 2px 6px #0003; transform: none !important; }
+          .folder[data-open="true"] .paper { display: block; }
+          .pic { position: static; width: min(100%, 247px); height: auto; aspect-ratio: 247 / 224; margin: 12px auto; }
+          .cname, .crole { position: static; width: 100%; font-size: 16px; overflow-wrap: anywhere; }
+        }
       `}</style>
     </section>
   );
