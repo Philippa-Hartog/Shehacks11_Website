@@ -37,7 +37,7 @@ export default function Olympics() {
               Hacker Olympics
             </h2>
             <p
-              style={{ fontFamily: "var(--font-sometype-mono)" }}
+              style={{fontFamily: "var(--font-inconsolata)"}}
               className="mt-[1.5cqw] px-[3cqw] text-[length:2.8cqw] leading-relaxed text-neutral-800"
             >
                 Hacker Olympics is our alternative competition stream designed for beginner hackers with little to no coding experience. We encourage everyone to try building a hack at SheHacks+, but we know jumping straight in can feel daunting. Beginners can apply for Hacker Olympics instead, a track built to grow coding skills and tech knowledge over the course of the event.
