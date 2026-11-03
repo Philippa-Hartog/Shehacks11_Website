@@ -13,7 +13,7 @@ import TeamFolders from "./components/teamfolders";
 
 export default function Home() {
     return (
-        <div className="font-sans min-h-screen text-white">
+        <div className="font-sans min-h-screen text-white py-8 md:py-20">
             <Navbar />
 
             <main className="w-full">
@@ -32,8 +32,8 @@ export default function Home() {
                 </section>
 
                 {/*past winners stuff*/}
-                <Winners />
-
+                    <Winners />
+               
                 {/*main wooden section*/}
                 <div
                     className="
@@ -57,7 +57,6 @@ export default function Home() {
                         "--footprint-unit": "clamp(6px, 1.4vw, 16px)",
                     }}
                 >
-
                     {/*caution tape stuff*/}
                     <img
                         src="/images/tapes.png"
@@ -65,12 +64,15 @@ export default function Home() {
                         aria-hidden="true"
                         className="
                             absolute
-                            top-[-30%]
+                            top-0
                             left-1/2
                             -translate-x-1/2
-                            w-[120vw]
+                            -translate-y-[70%]
+                            w-[138vw]
                             max-w-none
+                            h-auto
                             z-30
+                            rotate-[-1deg]
                             pointer-events-none
                         "
                     />
