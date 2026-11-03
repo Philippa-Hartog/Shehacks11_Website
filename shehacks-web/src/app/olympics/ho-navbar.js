@@ -41,7 +41,7 @@ export default function Navbar() {
     }`}>
 
       {/* CAUTION TAPE */}
-      <div className="absolute top-0 left-0 w-full h-[clamp(20px,2.5vw,36px)] overflow-hidden select-none pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-[clamp(22px,5vw,36px)] overflow-hidden select-none pointer-events-none">
         <Image 
           src="/images/caution_tape.png"
           alt="Caution tape background"
@@ -62,7 +62,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Major League Hacking 2026 Hackathon Season"
-            className={`mt-0 shrink-0 w-[clamp(35px,7vw,96px)]`}
+            className={`mt-0 shrink-0 w-[clamp(60px,10vw,96px)]`}
           >
             <img
               src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg"
@@ -78,15 +78,16 @@ export default function Navbar() {
                 alt="SheHacks"
                 width={132}
                 height={80}
-                className={`w-[clamp(50px,9.2vw,132px)] h-auto select-none pointer-events-none`}
+                className={`w-[clamp(80px,20vw,132px)] h-auto select-none pointer-events-none`}
                 priority
               />
             </a>
         </div>
+        
 
         {/* DESKTOP + MOBILE NAV */}
-        <div className="flex flex-1 min-w-0 justify-center items-start mt-[clamp(20px,4.62vw,67px)] z-10">
-          <div className="relative flex items-center justify-center w-[clamp(300px,67vw,974px)] max-w-full">
+        <div className="flex flex-1 min-w-0 justify-center items-start mt-8 sm:mt-12 z-10 z-10">
+          <div className="relative flex items-center justify-center w-full max-w-[974px]">
               
               {/* Yellow navline — sits right behind words */}
               <Image
@@ -94,14 +95,14 @@ export default function Navbar() {
                 alt="Navigation line"
                 width={974}
                 height={60}
-                className="w-full h-auto pointer-events-none select-none drop-shadow-sm"
+                className="w-full h-auto max-h-[60px] sm:max-h-[75px] pointer-events-none select-none drop-shadow-sm"
               />
 
               {/* Text layer */}
-              <div className="absolute inset-0 flex items-center justify-between px-[clamp(15px,3.8vw,55px)]">
+              <div className="absolute inset-0 flex items-center justify-between px-[clamp(50px,5vw,55px)]">
               
                 {/* Left: Navigation links */}
-                <ul className="font-koulen flex items-center min-w-0 gap-[clamp(6px,2.7vw,40px)] text-[clamp(8px,1.37vw,20px)]">
+                <ul className="font-koulen flex items-center min-w-0 gap-[clamp(50px,4vw,56px)] text-[clamp(20px,4vw,20px)]">
                   {NAV_LINKS.map((i) => (
                     <li key={i.href} className="whitespace-nowrap">
                       <a
@@ -116,7 +117,7 @@ export default function Navbar() {
                 </ul>
                 
                 {/* Right: Social logos*/}
-                <div className="flex items-center gap-[clamp(8px,2.7vw,40px)]">
+                <div className="flex items-center gap-[clamp(10px,5vw,40px)]">
                   <a
                     href="https://www.linkedin.com"
                     target="_blank" 
@@ -128,7 +129,7 @@ export default function Navbar() {
                       alt="Linkedin"
                       width={22}
                       height={22}
-                      className="w-[clamp(11px,1.5vw,22px)] h-auto"
+                      className="w-[clamp(22px,1.5vw,22px)] h-auto"
                     />
                   </a>
 
@@ -143,7 +144,7 @@ export default function Navbar() {
                       alt="Instagram" 
                       width={24} 
                       height={22}
-                      className="w-[clamp(12px,1.7vw,24px)] h-auto"
+                      className="w-[clamp(24px,1.7vw,24px)] h-auto"
                     />
                   </a>
 
@@ -158,7 +159,7 @@ export default function Navbar() {
                       alt="Facebook" 
                       width={18}
                       height={22}
-                      className="w-[clamp(10px,1.2vw,18px)] h-auto"
+                      className="w-[clamp(18px,1.2vw,18px)] h-auto"
                     />
                   </a>
                 </div>
