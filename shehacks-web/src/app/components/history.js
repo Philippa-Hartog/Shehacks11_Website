@@ -40,7 +40,7 @@ export default function History() {
                 className="object-contain object-left"
               />
               <div
-                style={{ fontFamily: "var(--font-sometype-mono)" }}
+                style={{fontFamily: "var(--font-inconsolata)"}}
                 className="absolute top-[10%] left-[24%] w-[68%] text-[length:3.8cqw] leading-relaxed text-black"
               >
                 <p>
