@@ -65,7 +65,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Major League Hacking 2026 Hackathon Season"
-            className={`mt-0 shrink-0 w-[clamp(35px,7vw,96px)]`}
+            className={`mt-0 shrink-0 w-[clamp(22px,7vw,96px)]`}
           >
             <img
               src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg"
@@ -81,7 +81,7 @@ export default function Navbar() {
                 alt="SheHacks"
                 width={132}
                 height={80}
-                className={`w-[clamp(50px,9.2vw,132px)] h-auto select-none pointer-events-none`}
+                className={`w-[clamp(40px,9.2vw,132px)] h-auto select-none pointer-events-none`}
                 priority
               />
             </a>
@@ -101,10 +101,10 @@ export default function Navbar() {
               />
 
               {/* Text layer */}
-              <div className="absolute inset-0 flex items-center justify-between px-[clamp(15px,3.8vw,55px)]">
+              <div className="absolute inset-0 flex items-center justify-between px-[clamp(7px,3vw,55px)]">
               
                 {/* Left: Navigation links */}
-                <ul className="font-koulen flex items-center min-w-0 gap-[clamp(6px,2.7vw,40px)] text-[clamp(8px,1.37vw,20px)]">
+                <ul className="font-koulen flex items-center min-w-0 gap-[clamp(6px,2.7vw,40px)] text-[clamp(6px,1.37vw,20px)]">
                   {NAV_LINKS.map((i) => (
                     <li key={i.href} className="whitespace-nowrap">
                       <a
@@ -131,7 +131,7 @@ export default function Navbar() {
                       alt="Linkedin"
                       width={22}
                       height={22}
-                      className="w-[clamp(11px,1.5vw,22px)] h-auto"
+                      className="w-[clamp(8px,1.5vw,22px)] h-auto"
                     />
                   </a>
 
@@ -146,7 +146,7 @@ export default function Navbar() {
                       alt="Instagram" 
                       width={24} 
                       height={22}
-                      className="w-[clamp(12px,1.7vw,24px)] h-auto"
+                      className="w-[clamp(9px,1.7vw,24px)] h-auto"
                     />
                   </a>
 
@@ -161,7 +161,7 @@ export default function Navbar() {
                       alt="Facebook" 
                       width={18}
                       height={22}
-                      className="w-[clamp(10px,1.2vw,18px)] h-auto"
+                      className="w-[clamp(7.5px,1.2vw,18px)] h-auto"
                     />
                   </a>
                 </div>
