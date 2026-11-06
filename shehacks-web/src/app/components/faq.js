@@ -45,14 +45,14 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
         <div className="relative w-full flex justify-center overflow-visible">
 
             {/*faq area stuff*/}
-            <div className="relative w-full max-w-[1100px] aspect-[1244/1270] overflow-visible">
+            <div className="relative w-full max-w-[1100px] xl:aspect-[1244/1270] overflow-visible">
 
                 {/*faq paper stuff*/}
                 <Image
                     src="/images/FAQ-paper.png"
                     alt="FAQ paper background"
                     fill
-                    className="object-contain object-top drop-shadow-xl"
+                    className="object-fill xl:object-contain object-top drop-shadow-xl"
                 />
 
                 {/*top footprint stuff*/}
@@ -138,11 +138,11 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
                 </div>
 
                 {/*questions stuff*/}
-                <div className="absolute inset-0 z-20">
+                <div className="relative pt-[14.5%] pb-[8%] xl:absolute xl:inset-0 xl:p-0 z-20">
                     <div
                         className="
-                            absolute
-                            top-[14.5%]
+                            relative xl:absolute
+                            xl:top-[14.5%]
                             left-[8%]
                             w-[84%]
                         "
@@ -174,7 +174,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
                                                 items-center
                                                 justify-between
                                                 gap-4
-                                                py-[1.6%]
+                                                py-3 xl:py-[1.6%]
                                                 text-left
                                                 focus:outline-none
                                             "
@@ -182,7 +182,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
                                             <span
                                                 className="
                                                     text-neutral-800
-                                                    text-[clamp(10px,1.45vw,21px)]
+                                                    text-sm sm:text-base xl:text-[clamp(10px,1.45vw,21px)]
                                                     leading-tight
                                                 "
                                             >
@@ -242,7 +242,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
                                                         pb-3
                                                         pr-6
                                                         text-neutral-700
-                                                        text-[clamp(9px,1.2vw,17px)]
+                                                        text-sm sm:text-base xl:text-[clamp(9px,1.2vw,17px)]
                                                         leading-relaxed
                                                     "
                                                 >
@@ -261,6 +261,7 @@ export default function Faq({ items = DEFAULT_ITEMS }) {
                 <div
                     className="
                         absolute
+                        hidden xl:block
                         bottom-[-7%]
                         z-30
                         w-[26%]

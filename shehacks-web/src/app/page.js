@@ -146,6 +146,7 @@ export default function Home() {
                         alt=""
                         aria-hidden="true"
                         className="
+                            hidden xl:block
                             absolute
                             left-1/2
                             top-[-10%]
