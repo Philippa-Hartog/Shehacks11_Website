@@ -361,11 +361,7 @@ export default function Landing() {
         />
 
         {/* Apply now polaroid */}
-        <Image
-          src="/images/landing/apply now polariod.png"
-          alt=""
-          width={436}
-          height={492}
+        <div
           className="
             absolute
             z-20
@@ -373,10 +369,53 @@ export default function Landing() {
             top-[33.5%]
             right-[3%]
             w-[36%]
-            h-auto
             max-w-[500px]
           "
-        />
+        >
+          <Image
+            src="/images/landing/apply now polariod.png"
+            alt=""
+            width={436}
+            height={492}
+            className="w-full h-auto select-none"
+          />
+
+          <a
+            href="https://tally.so/r/rjxvML"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apply now to SheHacks 11"
+            style={{
+              left: "51.03%",
+              top: "72.56%",
+              width: "61.93%",
+              aspectRatio: "270 / 73",
+              transform: "translate(-50%, -50%) rotate(-0.732deg)",
+              background: "#E7B84B",
+              borderRadius: "7% / 26%",
+              containerType: "inline-size",
+            }}
+            className="
+              absolute
+              pointer-events-auto
+              flex items-center justify-center
+              no-underline cursor-pointer
+              transition-[filter] duration-200 ease-out
+              hover:brightness-110
+              active:brightness-95
+            "
+          >
+            <span
+              style={{
+                fontFamily: "var(--font-koulen)",
+                fontSize: "17.8cqw",
+              }}
+              className="text-black leading-none"
+            >
+              APPLY NOW!
+            </span>
+          </a>
+        </div>
 
         {/* Ace card */}
         <Image
