@@ -119,9 +119,8 @@ export default function Landing() {
             pointer-events-none
             top-[-3.5%]
             left-[4%]
-            w-[100%]
+            w-[72%]
             h-auto
-            max-w-[900px]
           "
         />
 
@@ -166,8 +165,8 @@ export default function Landing() {
           className="
             absolute
             z-40
-            top-[10%]
-            left-[-15%]
+            top-[12%]
+            left-[-25%]
             w-[150%]
           "
         >
@@ -205,11 +204,11 @@ export default function Landing() {
                 key={label}
                 className="flex flex-col items-center leading-none"
               >
-                <span className="text-[clamp(28px,4vw,64px)]">
+                <span className="text-[clamp(16px,4vw,64px)]">
                   {String(value).padStart(2, "0")}
                 </span>
 
-                <span className="text-[clamp(10px,1.2vw,20px)]">
+                <span className="text-[clamp(6px,1.2vw,20px)]">
                   {label}
                 </span>
               </div>
