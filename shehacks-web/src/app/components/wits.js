@@ -12,7 +12,7 @@ export default function Wits() {
           style={{ width: "calc(var(--footprint-unit) * 9)" }}
         >
           <Image
-            src="/images/footsteps 1.png"
+            src="/images/Footsteps 1.png"
             alt="Footprints background graphic"
             width={268}
             height={658}
@@ -23,7 +23,7 @@ export default function Wits() {
         {/* MAGNIFYING GLASS */}
         <div className="absolute top-[15%] left-0 ml-[calc(50%-50vw)] w-[clamp(145px,35%,480px)] pointer-events-none z-30">
             <Image
-              src="/images/magnifying-glass.png"
+              src="/images/Magnifying-Glass.png"
               alt="Magnifying glass"
               width={480}
               height={480}
