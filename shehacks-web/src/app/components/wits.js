@@ -23,7 +23,7 @@ export default function Wits() {
         {/* MAGNIFYING GLASS */}
         <div className="absolute top-[15%] left-0 ml-[calc(50%-50vw)] w-[clamp(145px,35%,480px)] pointer-events-none z-30">
             <Image
-              src="/images/Magnifying-Glass.png"
+              src="/images/Magnifying-glass.png"
               alt="Magnifying glass"
               width={480}
               height={480}

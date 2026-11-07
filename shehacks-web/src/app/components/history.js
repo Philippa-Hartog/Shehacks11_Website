@@ -56,7 +56,7 @@ export default function History() {
           >
             <div className="w-full">
               <Image 
-                src="/images/cards.png" 
+                src="/images/Cards.png" 
                 alt="four of a kind eleven cards" 
                 width={607} 
                 height={825}
