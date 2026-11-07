@@ -46,17 +46,16 @@ export default function Winners() {
 
                     <div className={styles.projectImage}>
                         <img
-                            src="/images/hacker-olympics/winners/placeholder.jpg"
-                            alt="Project placeholder"
+                            src="/images/hacker-olympics/winners/creativearmor.jpg"
+                            alt="CreativeArmor"
                         />
                     </div>
 
                     <div className={styles.projectInfo}>
-                        <h3>Project Title Here</h3>
+                        <h3>CreativeArmor</h3>
 
                         <p>
-                            A short project description here. This can explain
-                            what the winning project does and why it stood out.
+                            CreativeArmor provides active defense against deepfakes and identity theft using cryptographic biometric verification. 
                         </p>
                     </div>
                 </button>
@@ -83,17 +82,16 @@ export default function Winners() {
 
                     <div className={styles.projectImage}>
                         <img
-                            src="/images/hacker-olympics/winners/placeholder.jpg"
-                            alt="Project placeholder"
+                            src="/images/hacker-olympics/winners/lingobun.jpg"
+                            alt="Lingo bunns"
                         />
                     </div>
 
                     <div className={styles.projectInfo}>
-                        <h3>Project Title Two</h3>
+                        <h3>LingoBunns</h3>
 
                         <p>
-                            A short project description here. This can explain
-                            what the winning project does and why it stood out.
+                           Some families lose language between generations. LINGOBUNNS helps bring it back, teaching kids through real conversation, stories, and play.
                         </p>
                     </div>
                 </button>
@@ -120,17 +118,16 @@ export default function Winners() {
 
                     <div className={styles.projectImage}>
                         <img
-                            src="/images/hacker-olympics/winners/placeholder.jpg"
-                            alt="Project placeholder"
+                            src="/images/hacker-olympics/winners/tedtalks.png"
+                            alt="tedtalks"
                         />
                     </div>
 
                     <div className={styles.projectInfo}>
-                        <h3>Project Title Three</h3>
+                        <h3>TedTalks</h3>
 
                         <p>
-                            A short project description here. This can explain
-                            what the winning project does and why it stood out.
+What if the future of kids’ tech was fewer screens and calmer companions? In a world of iPad kids, our AI teddy is a screen-free friend kids talk to naturally, while parents get privacy-safe insights.
                         </p>
                     </div>
                 </button>
@@ -157,17 +154,16 @@ export default function Winners() {
 
                     <div className={styles.projectImage}>
                         <img
-                            src="/images/hacker-olympics/winners/placeholder.jpg"
+                            src="/images/hacker-olympics/winners/politalk.jpg"
                             alt="Project placeholder"
                         />
                     </div>
 
                     <div className={styles.projectInfo}>
-                        <h3>Project Title Four</h3>
+                        <h3>PoliTalk</h3>
 
                         <p>
-                            A short project description here. This can explain
-                            what the winning project does and why it stood out.
+With 85% of youth getting news from social media, PoliTalk's extension detects political bias in real-time so you can think critically about what you watch. Scroll smarter, not blinder.
                         </p>
                     </div>
                 </button>

@@ -19,7 +19,7 @@ export default function Home() {
             <main className="w-full">
 
                 {/*landing stuff*/}
-                <div className="px-4 sm:px-20">
+                <div id="about" className="px-4 sm:px-20">
                     <Landing />
                 </div>
                 
@@ -32,7 +32,11 @@ export default function Home() {
                 </section>
 
                 {/*past winners stuff*/}
+                <section
+                    id="community"
+                >
                     <Winners />
+                </section>
                
                 {/*main wooden section*/}
                 <div

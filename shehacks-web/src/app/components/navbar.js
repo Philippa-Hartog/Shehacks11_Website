@@ -121,7 +121,7 @@ export default function Navbar() {
                 {/* Right: Social logos*/}
                 <div className="flex items-center gap-[clamp(8px,2.7vw,40px)]">
                   <a
-                    href="https://www.linkedin.com"
+                    href="https://www.linkedin.com/company/shehacks/about/"
                     target="_blank" 
                     rel="noreferrer" 
                     className="hover:opacity-70 transition-opacity"
@@ -136,7 +136,7 @@ export default function Navbar() {
                   </a>
 
                   <a 
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/wits.uwo/"
                     target="_blank" 
                     rel="noreferrer" 
                     className="hover:opacity-70 transition-opacity"
@@ -151,7 +151,7 @@ export default function Navbar() {
                   </a>
 
                   <a 
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/wits.uwo/"
                     target="_blank" 
                     rel="noreferrer" 
                     className="hover:opacity-70 transition-opacity"

@@ -124,9 +124,9 @@
 .newspaper {
   position: absolute;
 
-  width: 40vw;
-  max-width: 670px;       
-  min-width: 200px;
+  width: 50vw;
+  max-width: 840px;
+  min-width: 260px;
 
   padding: 0;
   margin: 0;
@@ -138,6 +138,7 @@
   cursor: grab;
 
   transform-origin: center center;
+  translate: 0 24rem;
 
   transition:
           transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -239,7 +240,7 @@
 
   font-family: var(--font-newsreader), Georgia, serif;
 
-  font-size: 15px;
+  font-size: 24px;
   font-weight: 600;
 
   line-height: 1.05;
@@ -250,7 +251,7 @@
 
   font-family: var(--font-sometype), monospace;
 
-  font-size: 8px;
+  font-size: 15px;
 
   line-height: 1.2;
 }
