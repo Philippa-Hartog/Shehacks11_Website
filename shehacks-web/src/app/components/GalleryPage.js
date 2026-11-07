@@ -51,6 +51,7 @@ export default function GalleryPage({
         src={frameSrc}
         alt=""
         fill
+        sizes="(max-width: 900px) 100vw, 900px"
         className="object-contain select-none pointer-events-none"
         priority
       />
@@ -116,14 +117,20 @@ export default function GalleryPage({
 
                   transformOrigin: "center center",
                 }}
-                onTransitionEnd={
-                  resetting && i === 0
-                    ? handleResetEnd
-                    :
-                      isCurrent && slidingActive
-                    ? handleSlideEnd
-                    : undefined
-                }
+                onTransitionEnd={(e) => {
+                    if (
+                        e.target !== e.currentTarget ||
+                        e.propertyName !== "transform"
+                    ) {
+                        return;
+                    }
+
+                    if (resetting && i === 0) {
+                        handleResetEnd();
+                    } else if (isCurrent && slidingActive) {
+                        handleSlideEnd();
+                    }
+                }}
               >
                 <div
                   className="relative w-full h-full"
@@ -140,6 +147,7 @@ export default function GalleryPage({
                     src={page.documentSrc}
                     alt=""
                     fill
+                    sizes="(max-width: 900px) 60vw, 540px"
                     className="object-contain select-none pointer-events-none"
                   />
 
@@ -162,6 +170,7 @@ export default function GalleryPage({
                         src={ov.src}
                         alt=""
                         fill
+                        sizes="(max-width: 900px) 60vw, 540px"
                         className="object-contain pointer-events-none select-none"
                       />
                     </div>
@@ -181,7 +190,7 @@ export default function GalleryPage({
                       if (slot.frame) {
                         return (
                           <div
-                            key={src}
+                            key={`${pageIdx}-${pi}`}
                             className="absolute"
                             style={{
                               top: slot.top,
@@ -203,6 +212,7 @@ export default function GalleryPage({
                                   src={src}
                                   alt=""
                                   fill
+                                  sizes="(max-width: 900px) 40vw, 360px"
                                   className="object-cover"
                                 />
                               </div>
@@ -212,6 +222,7 @@ export default function GalleryPage({
                                 src={slot.frame}
                                 alt=""
                                 fill
+                                sizes="(max-width: 900px) 40vw, 360px"
                                 className="object-contain pointer-events-none select-none"
                               />
                             </div>
@@ -223,8 +234,7 @@ export default function GalleryPage({
                        * NORMAL PHOTO / POLAROID
                        */
                       return (
-                        <div
-                          key={src}
+                        <div key={`${pageIdx}-${pi}`}
                           className="absolute bg-white p-1.5 shadow-md"
                           style={{
                             top: slot.top,
@@ -239,6 +249,7 @@ export default function GalleryPage({
                               src={src}
                               alt=""
                               fill
+                              sizes="(max-width: 900px) 40vw, 360px"
                               className="object-cover"
                             />
                           </div>
