@@ -41,7 +41,7 @@ export default function Navbar() {
     }`}>
 
       {/* CAUTION TAPE */}
-      <div className="absolute top-0 left-0 w-full h-[clamp(22px,5vw,36px)] overflow-hidden select-none pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-[clamp(24px,6vw,36px)] overflow-hidden select-none pointer-events-none">
         <Image 
           src="/images/caution_tape.png"
           alt="Caution tape background"
@@ -55,14 +55,14 @@ export default function Navbar() {
       <nav className="w-full px-4 py-0 flex items-start justify-between">
         
         {/* LOGOS */}
-        <div className="relative flex items-start gap-1 m-0 p-0 shrink-0 z-50">
+        <div className="relative flex items-start gap-2 m-0 p-0 shrink-0 z-50">
           <a
             id="mlh-trust-badge"
             href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Major League Hacking 2026 Hackathon Season"
-            className={`mt-0 shrink-0 w-[clamp(60px,10vw,96px)]`}
+            className={`ml-4 mt-0 shrink-0 w-[clamp(70px,10vw,96px)]`}
           >
             <img
               src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-white.svg"
@@ -78,15 +78,15 @@ export default function Navbar() {
                 alt="SheHacks"
                 width={132}
                 height={80}
-                className={`w-[clamp(80px,20vw,132px)] h-auto select-none pointer-events-none`}
+                className={`w-[clamp(150px,30vw,200px)] h-auto select-none pointer-events-none`}
                 priority
               />
             </a>
         </div>
         
 
-        {/* DESKTOP + MOBILE NAV */}
-        <div className="flex flex-1 min-w-0 justify-center items-start mt-8 sm:mt-12 z-10 z-10">
+        {/* DESKTOP NAV (visible ≥ 400px) */}
+        <div className="hidden min-[400px]:flex flex-1 min-w-0 justify-center items-start mt-8 sm:mt-12 z-10 z-10">
           <div className="relative flex items-center justify-center w-full max-w-[974px]">
               
               {/* Yellow navline — sits right behind words */}
@@ -166,7 +166,58 @@ export default function Navbar() {
               </div>
             </div>
           </div>
+
+         {/* HAMBURGER (visible < 400px) */}
+          <div className="block min-[400px]:hidden mt-[8vw]">
+            <button
+              aria-label="Open menu"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              onClick={() => setOpen((v) => !v)}
+              className="inline-flex items-center justify-center rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-white/60"
+            >
+            <span className="sr-only">Menu</span>
+            <div className="space-y-2">
+              <span className="block h-0.5 w-7.5 bg-white" />
+              <span className="block h-0.5 w-7.5 bg-white" />
+              <span className="block h-0.5 w-7.5 bg-white" />
+            </div>
+          </button>
+        </div>
       </nav>
+
+      {open && (
+        <div 
+          className="fixed inset-0 z-40 bg-transparent min-[400px]:hidden"
+          onClick={() => setOpen(false)} 
+        />
+      )}
+      {/* MOBILE DROPDOWN (< 400px) */}
+      <div
+        id="mobile-menu"
+        onClick={() => setOpen(false)}
+        className={`min-[400px]:hidden fixed top-[clamp(70px,14vw,90px)] left-0 right-0 z-50 ${
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        } transition-opacity duration-200`}
+      >
+        <div className=" ml-200 mr-8 rounded-xl border border-white/20 bg-black/80 backdrop-blur p-3">
+          <ul className="flex flex-col gap-2">
+            {NAV_LINKS.map((i) => (
+              <li key={i.href}>
+                <a
+                  href={i.href}
+                  onClick={() => setOpen(false)}
+                  style={{ fontFamily: "var(--font-koulen), sans-serif" }}
+                  className="block w-full rounded-lg px-3 py-2 text-2xl uppercase tracking-wide text-white hover:bg-white/10"
+                >
+                  {i.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>  
+
     </header>
   );
 }
