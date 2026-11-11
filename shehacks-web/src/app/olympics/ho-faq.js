@@ -8,12 +8,12 @@ const FAQ_ITEMS = [
   {
     question: "What challenges will I compete in?",
     answer:
-      "The challenges will be announced a week ahead of the hackathon. You will receive an email when it opens up so you don't miss anything.",
+      "The challenges focus on learning the fundamentals of programming. You’ll find out what they are at the hackathon, right before hacking begins.",
   },
   {
-    question: "If I'm a beginner, can I compete in the regular stream?",
+    question: "If I’m a beginner, can I compete in the regular stream?",
     answer:
-      "Yes, you’re allowed to choose one of the two streams that you believe suits you and your skillset.",
+      "Yes! Beginners are welcome to choose whichever stream feels right for them.",
   },
   {
     question: "Can I compete in both Hacker Olympics and regular stream?",
