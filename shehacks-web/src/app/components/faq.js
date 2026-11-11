@@ -13,8 +13,8 @@ const DEFAULT_ITEMS = [
         a: "The arrangements will include meals, comfortable sleeping accommodations, and travel reimbursements for those traveling a considerable distance to the venue.",
     },
     {
-        q: "Where will SheHacks+ take place?",
-        a: "TBD — venue and address to be provided.",
+        q: "Where will SheHacks+ 11 take place?",
+        a: "SheHacks+ 11 will take place in-person at Western University.",
     },
     {
         q: "Does SheHacks+ cost anything?",
@@ -34,7 +34,7 @@ const DEFAULT_ITEMS = [
     },
     {
         q: "I don’t attend a Canadian university. Can I still apply?",
-        a: "Yes! SheHacks+ welcomes students from around the world to participate. The only downside is we may not be able to reimburse your travel costs to our venue.",
+        a: "Yes! SheHacks+ welcomes students from around the world to participate. However, please note that we may not be able to reimburse your travel costs to our venue.",
     },
 ];
 
