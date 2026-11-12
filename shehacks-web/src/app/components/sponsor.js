@@ -54,7 +54,7 @@ function SponsorCard({
         ${isDealt ? styles.dealt : styles.deckCard}
         ${isDealt ? styles[position] : ""}
         ${isActive ? styles.activeCard : ""}
-      `}
+      `} 
             style={{ "--card-index": index }}
             onMouseEnter={isActive ? onFlip : undefined}
         >
