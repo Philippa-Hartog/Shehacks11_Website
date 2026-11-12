@@ -59,7 +59,7 @@ export default function Navbar() {
         
         {/* LOGOS */}
         <div className="relative flex items-start gap-1 m-0 p-0 shrink-0 z-50">
-          <a
+          {/* <a
             id="mlh-trust-badge"
             href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white"
             target="_blank"
@@ -72,7 +72,7 @@ export default function Navbar() {
               alt="MLH Trust Badge"
               className="w-full h-auto"
             />
-          </a>
+          </a> */}
             <a href="./" 
             className="mt-[clamp(7px,1.6vw,24px)] shrink-0"
             >

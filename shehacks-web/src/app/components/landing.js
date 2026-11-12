@@ -381,7 +381,7 @@ export default function Landing() {
           />
 
           <a
-            href="https://tally.so/r/rjxvML"
+            href="https://tally.so/r/RWGq19"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Apply now to SheHacks 11"
