@@ -41,33 +41,8 @@ function ScaledCanvas({ height, children }) {
 }
 
 export default function HackerOlympicsPage() {
-  const [overlayOpacity, setOpacity] = useState(1);
-
-  useEffect(() => {
-    // This effect is intended to change the opacity of the overlay as the user lands on the page
-    function changeOpacity() {
-      setTimeout(() => {
-        setOpacity(0);
-      }, 2000); // Change opacity after 2 seconds
-    }
-    changeOpacity();
-  }, []);
-
   return (
     <div style={{ position: 'relative' }}>
-      {/* Black landing overlay — covers the real viewport, independent of any section's own scaling */}
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          backgroundColor: 'black',
-          opacity: overlayOpacity,
-          zIndex: 10,
-          transition: 'opacity 1s',
-          pointerEvents: overlayOpacity === 0 ? 'none' : 'auto',
-        }}
-      />
-
       <ScaledCanvas height={CANVAS_A_HEIGHT}>
         <NavBar/>
         <HowHOWorks />
