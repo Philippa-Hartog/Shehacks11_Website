@@ -86,12 +86,12 @@ function Card({ person }) {
 export default function TeamCards() {
   return (
     <section className="mx-auto w-full max-w-[800px] px-6 py-8 sm:py-12">
-      <div className="flex justify-center flex-wrap gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 justify-items-center gap-6 [&>a:last-child]:col-span-2 sm:[&>a:last-child]:col-span-1">
         {PEOPLE.slice(0, 3).map((p) => (
           <Card key={p.name} person={p} />
         ))}
       </div>
-      <div className="flex justify-center flex-wrap gap-6 mt-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 justify-items-center gap-6 mt-8">
         {PEOPLE.slice(3).map((p) => (
           <Card key={p.name} person={p} />
         ))}

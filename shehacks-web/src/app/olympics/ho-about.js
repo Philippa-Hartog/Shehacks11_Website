@@ -8,8 +8,8 @@ export default function HOAbout() {
         alt=""
         className="absolute inset-0 h-full w-full object-cover pointer-events-none"
       />
-      <div className="relative">
-        <header className="relative flex aspect-[1451/238] items-center justify-center">
+      <div className="relative flex w-full flex-col items-center">
+        <header className="relative flex w-full aspect-[1451/238] items-center justify-center">
           <img src="/images/hacker-olympics/elements/meet-the-team-banner.png" alt="" className="absolute inset-0 h-full w-full" />
           <h1 className="relative font-koulen text-[clamp(28px,6.7vw,96px)] text-[#BD0000]">MEET THE TEAM</h1>
         </header>
