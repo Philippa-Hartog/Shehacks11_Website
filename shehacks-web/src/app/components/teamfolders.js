@@ -10,6 +10,7 @@ const PEOPLE = [
   { name: "Satwika Pujari",    role: "Director SheHacks", photo: "/images/hacker-olympics/teamphotos/Satwika pic.png",  linkedin: "https://www.linkedin.com/in/satwikapujari/",          tabX: 26  },
   { name: "Chloe Chong",       role: "Director SheHacks", photo: "/images/hacker-olympics/teamphotos/image 322.png",    linkedin: "https://www.linkedin.com/in/cchloechong",             tabX: 229 },
   { name: "Fiona Xu",          role: "Director SheHacks", photo: "/images/team/fiona.png", linkedin: "https://www.linkedin.com/in/fiona-xu06/", tabX: 365, folder: 3 },
+  { name: "Aroma Mahbub", role: "Director SheHacks", photo: "/images/team/aroma.png", linkedin: "https://www.linkedin.com/in/aroma-mahbub-584517377/", tabX: 537, folder: 4 },
 ];
 
 const STEP = 166;
@@ -79,13 +80,13 @@ export default function TeamFolders() {
           --s: min(1, calc(100vw / 1260));
           display: flex;
           justify-content: center;
-          height: calc(2516px * var(--s));
+          height: calc(2682px * var(--s));
           overflow: hidden;
         }
         .stage {
           position: relative;
           width: 1170px;
-          height: 2516px;
+          height: 2682px;
           transform: scale(var(--s));
           transform-origin: top center;
           flex: none;

@@ -9,6 +9,7 @@ const PEOPLE = [
   { name: "Satwika Pujari",   role: "DIRECTOR", card: "/images/team/card-satwika.png", linkedin: "https://www.linkedin.com/in/satwikapujari/", tilt: 3 },
   { name: "Chloe Chong",      role: "DIRECTOR", card: "/images/team/card-chloe.png",   linkedin: "https://www.linkedin.com/in/cchloechong", tilt: -3 },
   { name: "Fiona Xu", role: "DIRECTOR", card: "/images/team/card-chloe.png", photo: "/images/team/fiona.png", linkedin: "https://www.linkedin.com/in/fiona-xu06/", tilt: 3 },
+  { name: "Aroma Mahbub", role: "DIRECTOR", card: "/images/team/card-chloe.png", photo: "/images/team/aroma.png", linkedin: "https://www.linkedin.com/in/aroma-mahbub-584517377/", tilt: 0 },
 ];
 
 function Card({ person }) {
@@ -36,15 +37,18 @@ function Card({ person }) {
 
       <style jsx>{`
         .stage {
-          --card-w: 220px;
+          --card-w: min(220px, calc((100vw - 72px) / 2));
           display: block;
           text-decoration: none;
           cursor: pointer;
           width: var(--card-w);
           aspect-ratio: 273 / 389;
           perspective: 1200px;
-          margin: 0 10px;
+          margin: 0;
           transition: transform 350ms ease, z-index 0s;
+        }
+        @media (min-width: 640px) {
+          .stage { --card-w: min(220px, calc((100vw - 96px) / 3)); }
         }
         .stage:hover {
           z-index: 20;
@@ -81,13 +85,13 @@ function Card({ person }) {
 
 export default function TeamCards() {
   return (
-    <section className="py-16">
-      <div className="flex justify-center flex-wrap">
+    <section className="mx-auto w-full max-w-[800px] px-6 py-8 sm:py-12">
+      <div className="flex justify-center flex-wrap gap-6">
         {PEOPLE.slice(0, 3).map((p) => (
           <Card key={p.name} person={p} />
         ))}
       </div>
-      <div className="flex justify-center flex-wrap mt-6">
+      <div className="flex justify-center flex-wrap gap-6 mt-8">
         {PEOPLE.slice(3).map((p) => (
           <Card key={p.name} person={p} />
         ))}
