@@ -8,6 +8,7 @@ const PEOPLE = [
   { name: "Danica Keeler",    role: "DIRECTOR", card: "/images/team/card-danica.png",  linkedin: "https://www.linkedin.com/in/danicakeeler", tilt: -0 },
   { name: "Satwika Pujari",   role: "DIRECTOR", card: "/images/team/card-satwika.png", linkedin: "https://www.linkedin.com/in/satwikapujari/", tilt: 3 },
   { name: "Chloe Chong",      role: "DIRECTOR", card: "/images/team/card-chloe.png",   linkedin: "https://www.linkedin.com/in/cchloechong", tilt: -3 },
+  { name: "Fiona Xu", role: "DIRECTOR", card: "/images/team/card-chloe.png", photo: "/images/team/fiona.png", linkedin: "https://www.linkedin.com/in/fiona-xu06/", tilt: 3 },
 ];
 
 function Card({ person }) {
@@ -17,14 +18,19 @@ function Card({ person }) {
       href={person.linkedin}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${person.name}, ${person.role} — open LinkedIn profile`}
+      aria-label={`${person.name}, ${person.role}${person.linkedin ? " — open LinkedIn profile" : ""}`}
       style={{ transform: `rotate(${person.tilt}deg)` }}
     >
       <div className="inner">
         <div
           className="face front"
           style={{ backgroundImage: `url(${person.card})` }}
-        />
+        >
+          {person.photo && <>
+            <img src={person.photo} alt={person.name} style={{ position: "absolute", left: "9.16%", top: "15.42%", width: "81.68%", height: "74.29%", objectFit: "cover" }} />
+            <span className="absolute left-[9%] bottom-[3.5%] w-[83%] bg-[#efe2d2] text-black font-koulen text-[16px] leading-tight uppercase">{person.name}</span>
+          </>}
+        </div>
         <div className="face back" />
       </div>
 
