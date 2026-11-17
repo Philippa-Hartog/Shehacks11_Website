@@ -9,7 +9,7 @@ import NavBar from './ho-navbar';
 
 const CANVAS_WIDTH = 1440;
 const CANVAS_A_HEIGHT = 2576; // HowHOWorks
-const CANVAS_B_HEIGHT = 2490; // HOFaq + HOAbout
+const CANVAS_B_HEIGHT = 1068; // HOFaq; the team section uses a responsive layout below
 function ScaledCanvas({ height, children }) {
   const wrapperRef = useRef(null);
   const [scale, setScale] = useState(1);
@@ -24,11 +24,11 @@ function ScaledCanvas({ height, children }) {
   }, []);
 
   return (
-    <div ref={wrapperRef} style={{ width: '100%', overflow: 'hidden' }}>
+    <div ref={wrapperRef} style={{ width: '100%', height: height * scale, overflow: 'hidden' }}>
       <div
         style={{
           width: CANVAS_WIDTH,
-          height: height * scale,
+          height,
           transform: `scale(${scale})`,
           transformOrigin: 'top left',
           position: 'relative',
@@ -78,8 +78,8 @@ export default function HackerOlympicsPage() {
 
       <ScaledCanvas height={CANVAS_B_HEIGHT}>
         <section id="faq"><HOFaq /></section>
-        <section id="about"><HOAbout /></section>
       </ScaledCanvas>
+      <section id="about"><HOAbout /></section>
     </div>
   );
 }
