@@ -59,7 +59,7 @@ export default function Navbar() {
 
           {/* LOGOS */}
           <div className="relative flex items-start gap-1 m-0 p-0 shrink-0 z-50">
-            {/* <a
+            <a
                 id="mlh-trust-badge"
                 href="https://mlh.io/"
                 target="_blank"
@@ -71,7 +71,7 @@ export default function Navbar() {
                   alt="Major League Hacking 2027 Hackathon Season"
                   className="w-[clamp(70px,14vw,120px)] h-auto"
               />
-            </a> */}
+            </a>
 
             <Image
                 src="/images/logo.png"
